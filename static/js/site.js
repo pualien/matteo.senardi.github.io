@@ -6,6 +6,9 @@
     var prefersReducedMotion =
         typeof win.matchMedia === 'function' &&
         win.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var isMobileViewport =
+        typeof win.matchMedia === 'function' &&
+        win.matchMedia('(max-width: 768px)').matches;
 
     var runWhenIdle = function (task, timeout) {
         if (typeof win.requestIdleCallback === 'function') {
@@ -199,121 +202,8 @@
         }, 1500);
     };
 
-    var initReveal = function () {
-        var revealNodes = doc.querySelectorAll('.reveal');
-        if (!revealNodes.length) {
-            return;
-        }
-
-        if (prefersReducedMotion || !hasIntersectionObserver) {
-            revealNodes.forEach(function (el) {
-                el.classList.add('visible');
-            });
-            return;
-        }
-
-        var revealObserver = new IntersectionObserver(
-            function (entries, observer) {
-                entries.forEach(function (entry) {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            },
-            { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-        );
-
-        revealNodes.forEach(function (el) {
-            revealObserver.observe(el);
-        });
-    };
-
-    var initNavAndScrollTop = function () {
-        var navLinks = Array.prototype.slice.call(doc.querySelectorAll('.nav__link'));
-        var sectionNodes = doc.querySelectorAll('section[id], footer[id], header[id]');
+    var initScrollTop = function () {
         var scrollTopBtn = doc.getElementById('scroll-top');
-
-        var setActiveLink = function (id) {
-            if (!id) {
-                return;
-            }
-            navLinks.forEach(function (link) {
-                link.classList.toggle('active', link.getAttribute('href') === '#' + id);
-            });
-        };
-
-        if (sectionNodes.length && navLinks.length && hasIntersectionObserver) {
-            var visibleRatiosById = {};
-
-            var activeObserver = new IntersectionObserver(
-                function (entries) {
-                    entries.forEach(function (entry) {
-                        var id = entry.target.id;
-                        if (!id) {
-                            return;
-                        }
-
-                        if (entry.isIntersecting) {
-                            visibleRatiosById[id] = entry.intersectionRatio;
-                        } else {
-                            delete visibleRatiosById[id];
-                        }
-                    });
-
-                    var bestId = '';
-                    var bestRatio = -1;
-                    Object.keys(visibleRatiosById).forEach(function (id) {
-                        var ratio = visibleRatiosById[id];
-                        if (ratio > bestRatio) {
-                            bestRatio = ratio;
-                            bestId = id;
-                        }
-                    });
-
-                    if (bestId) {
-                        setActiveLink(bestId);
-                    }
-                },
-                {
-                    rootMargin: '-35% 0px -55% 0px',
-                    threshold: [0, 0.5, 1]
-                }
-            );
-
-            sectionNodes.forEach(function (section) {
-                activeObserver.observe(section);
-            });
-        } else if (sectionNodes.length && navLinks.length) {
-            // Fallback when IntersectionObserver is not available.
-            var tickPending = false;
-
-            var updateActiveByScroll = function () {
-                var y = win.scrollY + 120;
-                var current = '';
-
-                sectionNodes.forEach(function (section) {
-                    if (section.offsetTop <= y) {
-                        current = section.id;
-                    }
-                });
-                setActiveLink(current);
-            };
-
-            var onScroll = function () {
-                if (tickPending) {
-                    return;
-                }
-                tickPending = true;
-                win.requestAnimationFrame(function () {
-                    updateActiveByScroll();
-                    tickPending = false;
-                });
-            };
-
-            win.addEventListener('scroll', onScroll, { passive: true });
-            updateActiveByScroll();
-        }
 
         if (scrollTopBtn) {
             var updateScrollTopVisibility = function () {
@@ -341,13 +231,48 @@
         }
     };
 
+    var initBadgeLoading = function () {
+        var projectsSection = doc.getElementById('projects');
+        if (!projectsSection || !hasIntersectionObserver) {
+            runWhenIdle(initPyPIBadges, 2200);
+            return;
+        }
+
+        var started = false;
+        var start = function () {
+            if (started) {
+                return;
+            }
+
+            started = true;
+            runWhenIdle(initPyPIBadges, 1200);
+        };
+
+        var projectsObserver = new IntersectionObserver(
+            function (entries, observer) {
+                entries.forEach(function (entry) {
+                    if (!entry.isIntersecting) {
+                        return;
+                    }
+
+                    start();
+                    observer.disconnect();
+                });
+            },
+            { rootMargin: '300px 0px' }
+        );
+
+        projectsObserver.observe(projectsSection);
+    };
+
     var initDeferredFeatures = function () {
-        initReveal();
-        runWhenIdle(initNavAndScrollTop, 1200);
-        runWhenIdle(initPyPIBadges, 2000);
+        if (!isMobileViewport) {
+            runWhenIdle(initScrollTop, 1200);
+        }
+        runWhenIdle(initBadgeLoading, 1800);
     };
 
     onLoadIdle(function () {
-        runOnInteractionOrTimeout(initDeferredFeatures, 2200);
+        runOnInteractionOrTimeout(initDeferredFeatures, 6000);
     }, 1000);
 })();
