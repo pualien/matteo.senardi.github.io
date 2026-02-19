@@ -107,6 +107,7 @@
             if (themeIcon) {
                 themeIcon.textContent = theme === 'dark' ? '☀' : '☾';
             }
+            themeToggle.setAttribute('aria-pressed', String(theme === 'dark'));
             themeToggle.setAttribute(
                 'aria-label',
                 theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
