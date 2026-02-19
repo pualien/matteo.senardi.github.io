@@ -513,7 +513,7 @@
         .project__links .pypi-badge {
             height: 18px;
             margin-left: auto;
-            opacity: 0.7;
+            opacity: 0.85;
             transition: opacity var(--transition);
         }
         .project__links .pypi-badge:hover { opacity: 1; }
@@ -846,8 +846,8 @@
             background: var(--color-surface);
         }
 
-        [data-theme="dark"] .pypi-badge {
-            filter: invert(1) hue-rotate(180deg);
+        [data-theme="dark"] .project__links .pypi-badge {
+            opacity: 1;
         }
 
         [data-theme="dark"] .footer__copy {

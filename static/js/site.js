@@ -71,6 +71,32 @@
         yearsExpEl.textContent = String(new Date().getFullYear() - 2016);
     }
 
+    var getCurrentTheme = function () {
+        return root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    };
+
+    var buildPyPIBadgeUrl = function (pkg, theme) {
+        var baseUrl = 'https://img.shields.io/pypi/dm/' + encodeURIComponent(pkg);
+        if (theme === 'dark') {
+            return baseUrl + '?style=flat&labelColor=1d1d1f&color=0a66c2';
+        }
+        return baseUrl + '?style=flat';
+    };
+
+    var syncLoadedPyPIBadges = function () {
+        var theme = getCurrentTheme();
+        var loadedBadges = Array.prototype.slice.call(
+            doc.querySelectorAll('img[data-pypi-badge][data-loaded="true"]')
+        );
+        loadedBadges.forEach(function (badge) {
+            var pkg = badge.getAttribute('data-pypi-badge');
+            if (!pkg) {
+                return;
+            }
+            badge.src = buildPyPIBadgeUrl(pkg, theme);
+        });
+    };
+
     // Theme toggle
     var themeToggle = doc.getElementById('theme-toggle');
     if (themeToggle) {
@@ -85,6 +111,7 @@
                 'aria-label',
                 theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'
             );
+            syncLoadedPyPIBadges();
         };
 
         applyTheme(root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
@@ -188,7 +215,7 @@
 
             warmUpShieldsConnection();
 
-            badge.src = 'https://img.shields.io/pypi/dm/' + encodeURIComponent(pkg);
+            badge.src = buildPyPIBadgeUrl(pkg, getCurrentTheme());
             badge.alt = pkg + ' monthly downloads';
             badge.setAttribute('data-loaded', 'true');
         };
