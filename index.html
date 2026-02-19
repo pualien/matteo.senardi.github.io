@@ -1,548 +1,1217 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Matteo Senardi - Head of Data & AI, Cloud Architect, and Innovation Leader based in Turin, Italy.">
-    <title>Matteo Senardi | Head of Data & AI</title>
+    <meta name="description" content="Matteo Senardi — Head of Data & AI, Cloud Architect, and Innovation Leader based in Turin, Italy.">
+    <title>Matteo Senardi</title>
 
-    <!-- Google Fonts: Inter -->
+    <!-- Open Graph -->
+    <meta property="og:title" content="Matteo Senardi — Head of Data & AI">
+    <meta property="og:description" content="Building modern cloud architectures, AI systems, and data platforms. Based in Turin, Italy.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="static/Matteo_Senard.jpg">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Favicon (inline SVG monogram) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231d1d1f'/><text x='16' y='22' font-family='system-ui,sans-serif' font-size='18' font-weight='700' fill='white' text-anchor='middle'>MS</text></svg>">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- Tailwind CSS (CDN) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        primary: '#4f46e5', // Indigo/Purple 600
-                        primaryHover: '#4338ca', // Indigo/Purple 700
-                    }
-                }
+    <style>
+        /* ─── Design Tokens ─── */
+        :root {
+            --font-display: 'Outfit', system-ui, sans-serif;
+            --font-body: 'DM Sans', system-ui, sans-serif;
+
+            --color-bg: #FBFBFB;
+            --color-surface: #FFFFFF;
+            --color-text-primary: #1d1d1f;
+            --color-text-secondary: #6e6e73;
+            --color-text-tertiary: #a1a1a6;
+            --color-accent: #0071e3;
+            --color-accent-hover: #0077ED;
+            --color-border: rgba(0, 0, 0, 0.06);
+            --color-border-strong: rgba(0, 0, 0, 0.1);
+            --color-tag-bg: #f5f5f7;
+            --color-tag-text: #1d1d1f;
+            --color-nav-bg: rgba(251, 251, 251, 0.82);
+
+            --radius-sm: 10px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+
+            --space-xs: 8px;
+            --space-sm: 16px;
+            --space-md: 24px;
+            --space-lg: 48px;
+            --space-xl: 80px;
+            --space-2xl: 120px;
+
+            --max-width: 980px;
+            --transition: 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        /* ─── Reset ─── */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+
+        ::selection {
+            background: var(--color-accent);
+            color: #fff;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--color-bg);
+            color: var(--color-text-primary);
+            font-size: 17px;
+            line-height: 1.65;
+            font-weight: 400;
+            transition: background-color 0.4s ease, color 0.4s ease;
+        }
+
+        a {
+            color: var(--color-accent);
+            text-decoration: none;
+            transition: color var(--transition);
+        }
+        a:hover { color: var(--color-accent-hover); }
+
+        img { display: block; max-width: 100%; }
+
+        /* ─── Navigation ─── */
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: var(--color-nav-bg);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid var(--color-border);
+            transition: background-color 0.4s ease, border-color 0.4s ease;
+        }
+
+        .nav__inner {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--space-md);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 52px;
+        }
+
+        .nav__logo {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--color-text-primary);
+            letter-spacing: -0.03em;
+        }
+        .nav__logo span { color: var(--color-text-tertiary); font-weight: 400; }
+
+        .nav__links {
+            display: flex;
+            gap: var(--space-md);
+            list-style: none;
+        }
+
+        .nav__link {
+            font-family: var(--font-body);
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--color-text-secondary);
+            transition: color var(--transition);
+            letter-spacing: 0.01em;
+        }
+        .nav__link:hover,
+        .nav__link.active { color: var(--color-text-primary); }
+
+        .nav__mobile-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: var(--color-text-secondary);
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .nav__mobile-menu {
+            display: none;
+            position: absolute;
+            top: 52px;
+            left: 0;
+            right: 0;
+            background: var(--color-nav-bg);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid var(--color-border);
+            padding: var(--space-sm) var(--space-md) var(--space-md);
+        }
+        .nav__mobile-menu.open { display: block; }
+        .nav__mobile-menu a {
+            display: block;
+            padding: 12px 0;
+            font-size: 15px;
+            color: var(--color-text-secondary);
+            border-bottom: 1px solid var(--color-border);
+        }
+        .nav__mobile-menu a:last-child { border-bottom: none; }
+        .nav__mobile-menu a:hover { color: var(--color-text-primary); }
+
+        /* ─── Section Containers ─── */
+        .section {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: var(--space-xl) var(--space-md);
+        }
+
+        .section--wide {
+            max-width: 1100px;
+        }
+
+        .section__label {
+            font-family: var(--font-body);
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--color-text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: var(--space-xs);
+        }
+
+        .section__title {
+            font-family: var(--font-display);
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 700;
+            color: var(--color-text-primary);
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            margin-bottom: var(--space-lg);
+        }
+
+        .divider {
+            border: none;
+            border-top: 1px solid var(--color-border);
+            margin: 0 auto;
+            max-width: var(--max-width);
+            transition: border-color 0.4s ease;
+        }
+
+        /* ─── Hero ─── */
+        .hero {
+            padding: var(--space-2xl) var(--space-md);
+            max-width: var(--max-width);
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero__avatar {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto var(--space-lg);
+            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+            background: var(--color-tag-bg);
+        }
+
+        .hero__name {
+            font-family: var(--font-display);
+            font-size: clamp(44px, 7vw, 72px);
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            line-height: 1.05;
+            color: var(--color-text-primary);
+            margin-bottom: var(--space-sm);
+        }
+
+        .hero__title {
+            font-family: var(--font-display);
+            font-size: clamp(20px, 3vw, 28px);
+            font-weight: 400;
+            color: var(--color-text-secondary);
+            letter-spacing: -0.01em;
+            margin-bottom: var(--space-lg);
+        }
+
+        .hero__desc {
+            max-width: 560px;
+            margin: 0 auto var(--space-lg);
+            font-size: 17px;
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+        }
+
+        .hero__actions {
+            display: flex;
+            gap: var(--space-sm);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-body);
+            font-size: 15px;
+            font-weight: 500;
+            padding: 12px 28px;
+            border-radius: 980px; /* Apple pill shape */
+            border: none;
+            cursor: pointer;
+            transition: all var(--transition);
+            letter-spacing: 0.01em;
+        }
+
+        .btn--primary {
+            background: var(--color-accent);
+            color: #fff;
+        }
+        .btn--primary:hover {
+            background: var(--color-accent-hover);
+            color: #fff;
+            transform: scale(1.02);
+        }
+
+        .btn--secondary {
+            background: transparent;
+            color: var(--color-accent);
+            border: 1px solid var(--color-border-strong);
+        }
+        .btn--secondary:hover {
+            background: var(--color-tag-bg);
+            color: var(--color-accent);
+            border-color: var(--color-border-strong);
+        }
+
+        /* ─── About ─── */
+        .about__grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-lg);
+            align-items: start;
+        }
+
+        .about__text p {
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-sm);
+            font-size: 17px;
+        }
+        .about__text p:last-child { margin-bottom: 0; }
+
+        .about__aside {
+            background: var(--color-tag-bg);
+            border-radius: var(--radius-md);
+            padding: var(--space-md) var(--space-md);
+        }
+
+        .about__stat {
+            padding: var(--space-sm) 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+        .about__stat:last-child { border-bottom: none; }
+
+        .about__stat-value {
+            font-family: var(--font-display);
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            color: var(--color-text-primary);
+        }
+
+        .about__stat-label {
+            font-size: 13px;
+            color: var(--color-text-tertiary);
+            margin-top: 2px;
+        }
+
+        /* ─── Experience ─── */
+        .exp__list { display: flex; flex-direction: column; gap: var(--space-lg); }
+
+        .exp__item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: var(--space-lg);
+            align-items: start;
+            position: relative;
+            padding-left: 20px;
+            border-left: 2px solid var(--color-border);
+        }
+
+        .exp__item--current {
+            border-left-color: var(--color-accent);
+        }
+
+        .exp__item--current::before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 4px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--color-accent);
+        }
+
+        .exp__meta {
+            position: sticky;
+            top: 70px;
+        }
+
+        .exp__date {
+            font-size: 14px;
+            color: var(--color-text-tertiary);
+            font-weight: 400;
+            white-space: nowrap;
+        }
+
+        .exp__company {
+            font-family: var(--font-display);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-text-secondary);
+            margin-top: 4px;
+        }
+
+        .exp__role {
+            font-family: var(--font-display);
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--color-text-primary);
+            margin-bottom: var(--space-sm);
+            line-height: 1.3;
+        }
+
+        .exp__desc {
+            color: var(--color-text-secondary);
+            font-size: 16px;
+            line-height: 1.7;
+        }
+
+        .exp__desc p { margin-bottom: var(--space-xs); }
+        .exp__desc p:last-child { margin-bottom: 0; }
+
+        /* ─── Projects ─── */
+        .projects__grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1px;
+            background: var(--color-border);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+        }
+
+        @media (min-width: 1024px) {
+            .projects__grid {
+                grid-template-columns: repeat(3, 1fr);
             }
         }
-    </script>
-    <style>
-        /* Custom scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #f1f5f9; }
-        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+
+        .project {
+            background: var(--color-surface);
+            padding: var(--space-lg) var(--space-md);
+            display: flex;
+            flex-direction: column;
+            transition: background var(--transition), color 0.4s ease;
+        }
+        .project:hover { background: var(--color-tag-bg); }
+
+        .project__icon {
+            font-size: 24px;
+            color: var(--color-text-primary);
+            margin-bottom: var(--space-sm);
+            opacity: 0.6;
+        }
+
+        .project__name {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--color-text-primary);
+            margin-bottom: 8px;
+        }
+
+        .project__desc {
+            font-size: 15px;
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+            flex-grow: 1;
+            margin-bottom: var(--space-sm);
+        }
+
+        .project__tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: var(--space-sm);
+        }
+
+        .tag {
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--color-text-secondary);
+            background: var(--color-tag-bg);
+            padding: 4px 10px;
+            border-radius: 6px;
+            letter-spacing: 0.01em;
+        }
+
+        .project__links {
+            display: flex;
+            gap: var(--space-sm);
+            align-items: center;
+        }
+
+        .project__links .pypi-badge {
+            height: 18px;
+            margin-left: auto;
+            opacity: 0.7;
+            transition: opacity var(--transition);
+        }
+        .project__links .pypi-badge:hover { opacity: 1; }
+
+        .project__link {
+            font-size: 13px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .project__link i { font-size: 14px; }
+
+        /* ─── Skills ─── */
+        .skills__grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-lg);
+        }
+
+        .skills__category h4 {
+            font-family: var(--font-display);
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--color-text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: var(--space-sm);
+        }
+
+        .skills__list {
+            list-style: none;
+        }
+
+        .skills__list li {
+            font-size: 16px;
+            color: var(--color-text-primary);
+            padding: 8px 0;
+            border-bottom: 1px solid var(--color-border);
+            font-weight: 400;
+        }
+        .skills__list li:last-child { border-bottom: none; }
+
+        /* ─── Scroll to Top ─── */
+        .scroll-top {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--color-surface);
+            border: 1px solid var(--color-border-strong);
+            color: var(--color-text-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(8px);
+            transition: all var(--transition);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            z-index: 90;
+        }
+        .scroll-top:hover {
+            color: var(--color-text-primary);
+            border-color: var(--color-text-tertiary);
+            background: var(--color-tag-bg);
+        }
+        .scroll-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+        .scroll-top i { font-size: 14px; }
+
+        /* ─── Education ─── */
+        .edu__item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: var(--space-lg);
+            align-items: start;
+        }
+        .edu__item + .edu__item { margin-top: var(--space-lg); }
+
+        .edu__date {
+            font-size: 14px;
+            color: var(--color-text-tertiary);
+        }
+
+        .edu__degree {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: var(--color-text-primary);
+            margin-bottom: 4px;
+        }
+
+        .edu__school {
+            font-size: 15px;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-xs);
+        }
+
+        .edu__detail {
+            font-size: 15px;
+            color: var(--color-text-tertiary);
+        }
+
+        /* ─── Footer ─── */
+        .footer {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: var(--space-xl) var(--space-md) var(--space-lg);
+            text-align: center;
+        }
+
+        .footer__title {
+            font-family: var(--font-display);
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            color: var(--color-text-primary);
+            margin-bottom: var(--space-sm);
+        }
+
+        .footer__subtitle {
+            font-size: 17px;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-lg);
+        }
+
+        .footer__links {
+            display: flex;
+            justify-content: center;
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+        }
+
+        .footer__link {
+            font-size: 15px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer__copy {
+            font-size: 13px;
+            color: var(--color-text-tertiary);
+            border-top: 1px solid var(--color-border);
+            padding-top: var(--space-md);
+        }
+
+        /* ─── Responsive ─── */
+        @media (max-width: 768px) {
+            .nav__links { display: none; }
+            .nav__mobile-btn { display: block; }
+
+            .hero { padding: var(--space-xl) var(--space-md); }
+            .hero__avatar { width: 128px; height: 128px; }
+
+            .section { padding: var(--space-lg) var(--space-md); }
+
+            .about__grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-md);
+            }
+            .about__aside { order: -1; }
+
+            .exp__item {
+                grid-template-columns: 1fr;
+                gap: var(--space-xs);
+                padding-left: 16px;
+            }
+            .exp__meta {
+                position: static;
+                display: flex;
+                gap: var(--space-xs);
+                align-items: baseline;
+            }
+
+            .projects__grid { grid-template-columns: 1fr; }
+
+            .project__links {
+                flex-wrap: wrap;
+            }
+            .project__links .pypi-badge {
+                margin-left: 0;
+            }
+
+            .skills__grid { grid-template-columns: 1fr; }
+
+            .edu__item {
+                grid-template-columns: 1fr;
+                gap: var(--space-xs);
+            }
+
+            .scroll-top {
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        /* ─── Scroll Reveal ─── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.7s cubic-bezier(0.25, 0.1, 0.25, 1),
+                        transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ─── Theme Toggle ─── */
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--color-border-strong);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--color-text-secondary);
+            transition: all var(--transition);
+            flex-shrink: 0;
+            margin-left: var(--space-sm);
+        }
+        .theme-toggle:hover {
+            color: var(--color-text-primary);
+            border-color: var(--color-text-tertiary);
+            background: var(--color-tag-bg);
+        }
+        .theme-toggle i { font-size: 14px; }
+
+        /* ─── Dark Theme ─── */
+        [data-theme="dark"] {
+            --color-bg: #101010;
+            --color-surface: #1a1a1a;
+            --color-text-primary: #f5f5f7;
+            --color-text-secondary: #a1a1a6;
+            --color-text-tertiary: #6e6e73;
+            --color-accent: #2997ff;
+            --color-accent-hover: #40a9ff;
+            --color-border: rgba(255, 255, 255, 0.08);
+            --color-border-strong: rgba(255, 255, 255, 0.14);
+            --color-tag-bg: #1d1d1f;
+            --color-tag-text: #f5f5f7;
+            --color-nav-bg: rgba(16, 16, 16, 0.82);
+        }
+
+        [data-theme="dark"] .hero__avatar {
+            box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+        }
+
+        [data-theme="dark"] .project:hover {
+            background: #222;
+        }
+
+        [data-theme="dark"] .tag {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        [data-theme="dark"] .about__aside {
+            background: var(--color-surface);
+        }
+
+        [data-theme="dark"] .pypi-badge {
+            filter: invert(1) hue-rotate(180deg);
+        }
+
+        [data-theme="dark"] .footer__copy {
+            border-top-color: rgba(255, 255, 255, 0.08);
+        }
+
+        [data-theme="dark"] .scroll-top {
+            background: var(--color-surface);
+            box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+        }
     </style>
 </head>
-<body class="font-sans bg-slate-50 text-slate-800 antialiased selection:bg-primary selection:text-white flex flex-col min-h-screen">
+<body>
 
     <!-- Navigation -->
-    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200 shadow-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <nav class="flex justify-between h-16 items-center" aria-label="Main Navigation">
-                <div class="flex-shrink-0">
-                    <a href="#home" class="text-xl font-bold tracking-tighter text-slate-900 focus:outline-none focus:ring-2 focus:ring-primary rounded">
-                        MS<span class="text-primary">.</span>
-                    </a>
-                </div>
-
-                <!-- Desktop Menu -->
-                <div class="hidden md:flex space-x-8">
-                    <a href="#about" class="text-slate-600 hover:text-primary font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary/50 rounded px-1" data-nav-link>About</a>
-                    <a href="#experience" class="text-slate-600 hover:text-primary font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary/50 rounded px-1" data-nav-link>Experience</a>
-                    <a href="#projects" class="text-slate-600 hover:text-primary font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary/50 rounded px-1" data-nav-link>Projects</a>
-                    <a href="#education" class="text-slate-600 hover:text-primary font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary/50 rounded px-1" data-nav-link>Education</a>
-                    <a href="#skills" class="text-slate-600 hover:text-primary font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-primary/50 rounded px-1" data-nav-link>Skills</a>
-                </div>
-
-                <!-- Mobile menu button -->
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" aria-expanded="false" aria-controls="mobile-menu" aria-label="Toggle menu" class="text-slate-600 hover:text-primary focus:outline-none focus:ring-2 focus:ring-primary rounded p-1">
-                        <i class="fa-solid fa-bars text-2xl" aria-hidden="true"></i>
-                    </button>
-                </div>
-            </nav>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-200 shadow-lg absolute w-full">
-            <div class="px-4 pt-2 pb-6 space-y-2">
-                <a href="#about" class="block px-3 py-2 text-slate-600 hover:bg-slate-50 hover:text-primary font-medium rounded-md" data-nav-link>About</a>
-                <a href="#experience" class="block px-3 py-2 text-slate-600 hover:bg-slate-50 hover:text-primary font-medium rounded-md" data-nav-link>Experience</a>
-                <a href="#projects" class="block px-3 py-2 text-slate-600 hover:bg-slate-50 hover:text-primary font-medium rounded-md" data-nav-link>Projects</a>
-                <a href="#education" class="block px-3 py-2 text-slate-600 hover:bg-slate-50 hover:text-primary font-medium rounded-md" data-nav-link>Education</a>
-                <a href="#skills" class="block px-3 py-2 text-slate-600 hover:bg-slate-50 hover:text-primary font-medium rounded-md" data-nav-link>Skills</a>
+    <nav class="nav" aria-label="Main Navigation">
+        <div class="nav__inner">
+            <a href="#" class="nav__logo">Matteo <span>Senardi</span></a>
+            <ul class="nav__links">
+                <li><a href="#about" class="nav__link">About</a></li>
+                <li><a href="#experience" class="nav__link">Experience</a></li>
+                <li><a href="#projects" class="nav__link">Projects</a></li>
+                <li><a href="#skills" class="nav__link">Skills</a></li>
+                <li><a href="#education" class="nav__link">Education</a></li>
+            </ul>
+            <div style="display:flex;align-items:center;gap:8px;">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <button class="nav__mobile-btn" id="mobile-btn" aria-label="Toggle menu" aria-expanded="false">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
             </div>
+        </div>
+        <div class="nav__mobile-menu" id="mobile-menu">
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#skills">Skills</a>
+            <a href="#education">Education</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero" id="home">
+        <img src="static/Matteo_Senard.jpg" alt="Matteo Senardi" class="hero__avatar reveal" fetchpriority="high">
+        <h1 class="hero__name reveal">Matteo Senardi</h1>
+        <p class="hero__title reveal">Head of Data & AI</p>
+        <p class="hero__desc reveal">
+            Building modern cloud architectures, AI systems, and data platforms that drive real business outcomes. Based in Turin.
+        </p>
+        <div class="hero__actions reveal">
+            <a href="https://github.com/pualien" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+                <i class="fa-brands fa-github"></i> GitHub
+            </a>
+            <a href="#contact" class="btn btn--secondary">Get in Touch</a>
         </div>
     </header>
 
-    <main class="flex-grow">
-        <!-- Hero Section -->
-        <section id="home" class="relative pt-24 pb-32 flex items-center justify-center min-h-[90vh] px-4 overflow-hidden">
-            <div class="max-w-5xl mx-auto text-center flex flex-col items-center z-10">
-                <img src="static/Matteo_Senard.jpg" alt="Matteo Senardi" fetchpriority="high" class="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover shadow-xl border-4 border-white mb-8">
-                <h1 class="text-5xl md:text-6xl font-extrabold text-slate-900 tracking-tight mb-4">
-                    Matteo Senardi
-                </h1>
-                <h2 class="text-xl md:text-2xl font-medium text-slate-500 mb-6">
-                    Head of Data & AI | Cloud Architect | Innovation Leader
-                </h2>
-                <p class="max-w-2xl text-lg text-slate-600 mb-10 leading-relaxed">
-                    Transforming businesses through modern cloud architectures, artificial intelligence, and advanced data analytics to drive operational efficiency and growth.
+    <hr class="divider">
+
+    <!-- About -->
+    <section id="about" class="section">
+        <div class="about__grid">
+            <div class="about__text reveal">
+                <p class="section__label">About</p>
+                <h2 class="section__title" style="margin-bottom: var(--space-md);">Envisioning data&#8209;driven&nbsp;solutions.</h2>
+                <p>
+                    An engineering professional with deep experience bridging complex data infrastructures and high-impact business outcomes. I lead cross-functional teams building advanced analytics, AI copilots, and cloud-native data platforms.
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="https://github.com/pualien" target="_blank" rel="noopener noreferrer" class="px-8 py-3 rounded-lg bg-slate-900 text-white font-medium hover:bg-slate-800 transition-all shadow-md flex items-center justify-center gap-2 focus:ring-4 focus:ring-slate-300">
-                        <i class="fa-brands fa-github" aria-hidden="true"></i> View GitHub
-                    </a>
-                    <a href="#contact" class="px-8 py-3 rounded-lg bg-primary text-white font-medium hover:bg-primaryHover transition-all shadow-md shadow-primary/30 flex items-center justify-center gap-2 focus:ring-4 focus:ring-primary/30">
-                        <i class="fa-solid fa-paper-plane" aria-hidden="true"></i> Contact Me
-                    </a>
+                <p>
+                    My work spans software engineering, machine learning, and cloud architecture across GCP, Azure, and AWS — designing scalable decoupled environments and orchestrating AI agent systems with multiple graph architectures and LLMs.
+                </p>
+            </div>
+            <div class="about__aside reveal">
+                <div class="about__stat">
+                    <div class="about__stat-value"><span id="years-exp"></span>+</div>
+                    <div class="about__stat-label">Years in Data, Cloud & AI Engineering</div>
+                </div>
+                <div class="about__stat">
+                    <div class="about__stat-value">3</div>
+                    <div class="about__stat-label">Major Cloud Platforms (GCP, Azure, AWS)</div>
+                </div>
+                <div class="about__stat">
+                    <div class="about__stat-value">10+</div>
+                    <div class="about__stat-label">Open-Source Projects Published</div>
                 </div>
             </div>
-            <!-- Background decorative elements -->
-            <div class="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl -z-10 pointer-events-none"></div>
-            <div class="absolute top-0 right-0 translate-x-1/3 -translate-y-1/4 w-[500px] h-[500px] bg-blue-400/5 rounded-full blur-3xl -z-10 pointer-events-none"></div>
-        </section>
+        </div>
+    </section>
 
-        <!-- About Section -->
-        <section id="about" class="py-20 bg-white border-y border-slate-100">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col md:flex-row items-center gap-12">
-                    <div class="md:w-1/3">
-                        <div class="w-full h-full bg-slate-50 rounded-2xl p-6 border border-slate-100 shadow-sm relative">
-                            <i class="fa-solid fa-quote-left text-4xl text-primary/20 absolute top-4 left-4" aria-hidden="true"></i>
-                            <h3 class="text-xl font-bold text-slate-800 mt-6 mb-2">Passion for Research & Problem Solving</h3>
-                            <p class="text-slate-600 text-sm">Always in search of new experiences and challenges that help my professional improvement.</p>
-                        </div>
+    <hr class="divider">
+
+    <!-- Experience -->
+    <section id="experience" class="section">
+        <p class="section__label reveal">Experience</p>
+        <h2 class="section__title reveal">Career.</h2>
+
+        <div class="exp__list">
+            <article class="exp__item exp__item--current reveal">
+                <div class="exp__meta">
+                    <div class="exp__date">Jan 2025 — Present</div>
+                    <div class="exp__company">Gruppo Dylog</div>
+                </div>
+                <div>
+                    <h3 class="exp__role">Head of Data & AI</h3>
+                    <div class="exp__desc">
+                        <p>Leading data science and AI teams to develop products that enhance operational efficiency and customer experience. Overseeing AI-based payment reconciliation, natural-language copilots, and advanced analytics platforms.</p>
+                        <p>Architecting solutions with Microsoft Azure, Terraform, Apache Airflow, PowerBI, and Azure OpenAI LLMs.</p>
                     </div>
-                    <div class="md:w-2/3">
-                        <h2 class="text-sm font-bold tracking-widest text-primary uppercase mb-2">About Me</h2>
-                        <h3 class="text-3xl font-bold text-slate-900 mb-6">Envisioning data-driven solutions</h3>
-                        <p class="text-slate-600 mb-4 leading-relaxed">
-                            I am an engineering professional based in Turin, Italy, with extensive experience bridging the gap between complex data infrastructures and high-impact business solutions. Currently serving as a Head of Data & AI, I lead cross-functional teams to build advanced analytics, AI copilots, and cloud-native data platforms.
-                        </p>
-                        <p class="text-slate-600 leading-relaxed">
-                            My background spans software engineering, machine learning, and cloud architecture (GCP, Azure, AWS). I specialize in designing scalable decoupled environments, orchestrating teams working on tailor-made AI agent copilots with different graphs and LLMs to enhance operational efficiency, and leading innovation strategies.
-                        </p>
+                </div>
+            </article>
+
+            <article class="exp__item exp__item--current reveal">
+                <div class="exp__meta">
+                    <div class="exp__date">Jan 2020 — Present</div>
+                    <div class="exp__company">Docsity — Ladybird S.r.l.</div>
+                </div>
+                <div>
+                    <h3 class="exp__role">Head of Data & Analytics / Innovation</h3>
+                    <div class="exp__desc">
+                        <p>Envisioning and executing data strategies for informed decision-making. Designed end-to-end data infrastructure on Google Cloud Platform managed through Terraform and Apache Airflow.</p>
+                        <p>Governing analytics through Looker and enriching products with LLM-powered agent capabilities.</p>
                     </div>
+                </div>
+            </article>
+
+            <article class="exp__item reveal">
+                <div class="exp__meta">
+                    <div class="exp__date">Apr 2019 — Dec 2019</div>
+                    <div class="exp__company">Mediaset — RTI Spa</div>
+                </div>
+                <div>
+                    <h3 class="exp__role">Solution Architect / Lead Data Engineer</h3>
+                    <div class="exp__desc">
+                        <p>Architected a custom data lake for real-time click-stream events processing 2–3 GB/hour. Built decoupled environments across prod, QA, and dev using Terraform and AWS services including Kinesis, Glue, and Athena.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="exp__item reveal">
+                <div class="exp__meta">
+                    <div class="exp__date">Feb 2016 — Mar 2019</div>
+                    <div class="exp__company">NETIDEA Webranking SRL</div>
+                </div>
+                <div>
+                    <h3 class="exp__role">Innovation Engineer / Data Scientist</h3>
+                    <div class="exp__desc">
+                        <p>Lead developer for Big Data architectures merging APIs, scraped data, and CRMs. Deployed ML techniques — forecasting, clustering, NLP — for clients including Allianz, Bulgari, Mediaset, and Johnson & Johnson.</p>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Projects -->
+    <section id="projects" class="section section--wide">
+        <p class="section__label reveal">Open Source</p>
+        <h2 class="section__title reveal">Notable Projects.</h2>
+
+        <div class="projects__grid reveal">
+            <div class="project">
+                <div class="project__icon"><i class="fa-solid fa-file-lines"></i></div>
+                <h3 class="project__name">Polytext</h3>
+                <p class="project__desc">Python package for document conversion and text extraction — Office to PDF, multi-backend PDF parsing, text from images, audio/video, URLs, and YouTube transcripts.</p>
+                <div class="project__tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">PDF</span>
+                    <span class="tag">Extraction</span>
+                </div>
+                <div class="project__links">
+                    <a href="https://github.com/docsity/polytext" target="_blank" rel="noopener noreferrer" class="project__link"><i class="fa-brands fa-github"></i> Code</a>
+                    <a href="https://pypi.org/project/polytext/" target="_blank" rel="noopener noreferrer" class="project__link"><i class="fa-brands fa-python"></i> PyPI</a>
+                    <img data-pypi-badge="polytext" class="pypi-badge" alt="" src="" loading="lazy">
                 </div>
             </div>
-        </section>
 
-        <!-- Experience Section -->
-        <section id="experience" class="py-20 bg-slate-50">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-sm font-bold tracking-widest text-primary uppercase mb-2">Career Journey</h2>
-                    <h3 class="text-3xl font-bold text-slate-900">Work Experience</h3>
+            <div class="project">
+                <div class="project__icon"><i class="fa-brands fa-chrome"></i></div>
+                <h3 class="project__name">Trackie</h3>
+                <p class="project__desc">Chrome extension for debugging tag managers (GTM, Tealium, Commanders Act) and common tags like GA4, Floodlight, and Adobe Analytics.</p>
+                <div class="project__tags">
+                    <span class="tag">Chrome Extension</span>
+                    <span class="tag">Analytics</span>
                 </div>
-
-                <div class="space-y-8">
-                    <!-- Job 1 -->
-                    <article class="bg-white p-8 rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow relative overflow-hidden">
-                        <div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>
-                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
-                            <div>
-                                <h4 class="text-xl font-bold text-slate-900">Head of Data & AI</h4>
-                                <p class="text-slate-600 font-medium text-sm md:text-base"><i class="fa-regular fa-building mr-2" aria-hidden="true"></i>Gruppo Dylog</p>
-                            </div>
-                            <span class="inline-flex items-center bg-slate-100 text-slate-600 text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap"><i class="fa-regular fa-calendar mr-1" aria-hidden="true"></i> Jan 2025 – Present</span>
-                        </div>
-                        <ul class="list-disc list-inside text-slate-600 space-y-2 mt-4 leading-relaxed">
-                            <li>Lead data science and AI teams to develop products enhancing operational efficiency and customer experience.</li>
-                            <li>Oversee AI-based payment reconciliation, natural-language copilots, and advanced analytics platforms.</li>
-                            <li>Architect solutions using Microsoft Azure, Terraform, Apache Airflow, PowerBI, and Azure OpenAI LLMs.</li>
-                        </ul>
-                    </article>
-
-                    <!-- Job 2 -->
-                    <article class="bg-white p-8 rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow relative overflow-hidden">
-                        <div class="absolute left-0 top-0 bottom-0 w-1 bg-primary"></div>
-                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
-                            <div>
-                                <h4 class="text-xl font-bold text-slate-900">Head of Data & Analytics / Innovation</h4>
-                                <p class="text-slate-600 font-medium text-sm md:text-base"><i class="fa-regular fa-building mr-2" aria-hidden="true"></i>Docsity – Ladybird S.r.l.</p>
-                            </div>
-                            <span class="inline-flex items-center bg-slate-100 text-slate-600 text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap"><i class="fa-regular fa-calendar mr-1" aria-hidden="true"></i> Jan 2020 – Present</span>
-                        </div>
-                        <ul class="list-disc list-inside text-slate-600 space-y-2 mt-4 leading-relaxed">
-                            <li>Envision and execute data strategies to enable informed decision-making and improve business performance.</li>
-                            <li>Design data infrastructure on Google Cloud Platform, managed by Terraform and Apache Airflow.</li>
-                            <li>Govern analytics through Looker and enrich products with LLMs agent capabilities.</li>
-                        </ul>
-                    </article>
-
-                    <!-- Job 3 -->
-                    <article class="bg-white p-8 rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow relative overflow-hidden">
-                        <div class="absolute left-0 top-0 bottom-0 w-1 bg-slate-300"></div>
-                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
-                            <div>
-                                <h4 class="text-xl font-bold text-slate-900">Solution Architect / Lead Data Engineer</h4>
-                                <p class="text-slate-600 font-medium text-sm md:text-base"><i class="fa-regular fa-building mr-2" aria-hidden="true"></i>Mediaset – RTI Spa</p>
-                            </div>
-                            <span class="inline-flex items-center bg-slate-100 text-slate-600 text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap"><i class="fa-regular fa-calendar mr-1" aria-hidden="true"></i> Apr 2019 – Dec 2019</span>
-                        </div>
-                        <ul class="list-disc list-inside text-slate-600 space-y-2 mt-4 leading-relaxed">
-                            <li>Architected a custom data lake for real-time click-stream events (2-3 GB of data per hour).</li>
-                            <li>Built decoupled environments (prod, qa, dev) using Terraform and AWS (Kinesis, Glue, Athena).</li>
-                            <li>Managed post-processing via Apache Airflow to orchestrate self-terminating EMR clusters.</li>
-                        </ul>
-                    </article>
-
-                    <!-- Job 4 -->
-                    <article class="bg-white p-8 rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow relative overflow-hidden">
-                        <div class="absolute left-0 top-0 bottom-0 w-1 bg-slate-300"></div>
-                        <div class="flex flex-col md:flex-row md:items-center justify-between mb-4 gap-2">
-                            <div>
-                                <h4 class="text-xl font-bold text-slate-900">Innovation Engineer / Data Scientist</h4>
-                                <p class="text-slate-600 font-medium text-sm md:text-base"><i class="fa-regular fa-building mr-2" aria-hidden="true"></i>NETIDEA Webranking SRL</p>
-                            </div>
-                            <span class="inline-flex items-center bg-slate-100 text-slate-600 text-xs font-bold px-3 py-1 rounded-full whitespace-nowrap"><i class="fa-regular fa-calendar mr-1" aria-hidden="true"></i> Feb 2016 – Mar 2019</span>
-                        </div>
-                        <ul class="list-disc list-inside text-slate-600 space-y-2 mt-4 leading-relaxed">
-                            <li>Lead developer for web-based Big Data architectures merging APIs, scraped data, and CRMs.</li>
-                            <li>Deployed Machine Learning techniques including forecasting, clustering, and NLP (Entity Recognition, word2vec).</li>
-                            <li>Delivered solutions for high-profile clients like Allianz, Bulgari, Mediaset, and Johnson & Johnson.</li>
-                        </ul>
-                    </article>
+                <div class="project__links">
+                    <a href="https://pualien.github.io/Trackie/" target="_blank" rel="noopener noreferrer" class="project__link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Website</a>
                 </div>
             </div>
-        </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="py-20 bg-white border-t border-slate-100">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-sm font-bold tracking-widest text-primary uppercase mb-2">Portfolio</h2>
-                    <h3 class="text-3xl font-bold text-slate-900">Personal & Academic Projects</h3>
+            <div class="project">
+                <div class="project__icon"><i class="fa-brands fa-google"></i></div>
+                <h3 class="project__name">Gcloud Connectors</h3>
+                <p class="project__desc">Python utilities simplifying Google API connections — wrappers for BigQuery, Analytics, Drive, Search Console, Sheets, and Storage.</p>
+                <div class="project__tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Google APIs</span>
                 </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Project 1 -->
-                    <div class="bg-slate-50 border border-slate-100 rounded-xl flex flex-col h-full hover:-translate-y-1 transition-transform duration-300 shadow-sm">
-                        <div class="p-6 flex-grow flex flex-col">
-                            <div class="text-primary text-3xl mb-4"><i class="fa-solid fa-file-lines" aria-hidden="true"></i></div>
-                            <h4 class="text-xl font-bold text-slate-900 mb-2">Polytext</h4>
-                            <p class="text-slate-600 text-sm mb-4 flex-grow">Python package for document conversion and text extraction, supporting Office formats to PDF, multi-backend PDF parsing, and text from images, audio/video, URLs, and YouTube transcripts.</p>
-                            <div class="flex flex-wrap gap-2 mt-auto pt-2">
-                                <span class="text-xs font-semibold bg-white border border-slate-200 text-slate-600 px-2 py-1 rounded">Python</span>
-                                <span class="text-xs font-semibold bg-white border border-slate-200 text-slate-600 px-2 py-1 rounded">PDF</span>
-                                <span class="text-xs font-semibold bg-white border border-slate-200 text-slate-600 px-2 py-1 rounded">Text Extraction</span>
-                            </div>
-                        </div>
-                        <div class="p-4 bg-white border-t border-slate-100 rounded-b-xl flex justify-between items-center gap-4">
-                            <div class="flex items-center gap-4">
-                                <a href="https://github.com/docsity/polytext" target="_blank" rel="noopener noreferrer" class="text-primary font-medium text-sm hover:underline flex items-center"><i class="fa-brands fa-github mr-2"></i> Code</a>
-                                <a href="https://pypi.org/project/polytext/" target="_blank" rel="noopener noreferrer" class="text-primary font-medium text-sm hover:underline flex items-center"><i class="fa-brands fa-python mr-2"></i> PyPI</a>
-                            </div>
-                            <img data-pypi-download-badge="polytext" alt="" class="h-5" loading="lazy" src="">
-                        </div>
-                    </div>
-
-                    <!-- Project 2 -->
-                    <div class="bg-slate-50 border border-slate-100 rounded-xl flex flex-col h-full hover:-translate-y-1 transition-transform duration-300 shadow-sm">
-                        <div class="p-6 flex-grow flex flex-col">
-                            <div class="text-primary text-3xl mb-4"><i class="fa-brands fa-chrome" aria-hidden="true"></i></div>
-                            <h4 class="text-xl font-bold text-slate-900 mb-2">Trackie</h4>
-                            <p class="text-slate-600 text-sm mb-4 flex-grow">Chrome extension that enhances debugging for tag managers (GTM, Tealium, Commanders Act) and common tags like GA4, Floodlight, and Adobe Analytics.</p>
-                            <div class="flex flex-wrap gap-2 mt-auto pt-2">
-                                <span class="text-xs font-semibold bg-white border border-slate-200 text-slate-600 px-2 py-1 rounded">Chrome Extension</span>
-                                <span class="text-xs font-semibold bg-white border border-slate-200 text-slate-600 px-2 py-1 rounded">Tag Management</span>
-                            </div>
-                        </div>
-                        <div class="p-4 bg-white border-t border-slate-100 rounded-b-xl flex justify-between items-center gap-4">
-                            <a href="https://pualien.github.io/Trackie/" target="_blank" rel="noopener noreferrer" class="text-primary font-medium text-sm hover:underline flex items-center"><i class="fa-solid fa-arrow-up-right-from-square mr-2"></i> View Site</a>
-                        </div>
-                    </div>
-
-                    <!-- Project 3 -->
-                    <div class="bg-slate-50 border border-slate-100 rounded-xl flex flex-col h-full hover:-translate-y-1 transition-transform duration-300 shadow-sm">
-                        <div class="p-6 flex-grow flex flex-col">
-                            <div class="text-primary text-3xl mb-4"><i class="fa-brands fa-python" aria-hidden="true"></i></div>
-                            <h4 class="text-xl font-bold text-slate-900 mb-2">Gcloud Connectors</h4>
-                            <p class="text-slate-600 text-sm mb-4 flex-grow">Python utilities that simplify connections to Google APIs, with wrappers for BigQuery, Analytics, Drive, Search Console, Sheets, and Storage.</p>
-                            <div class="flex flex-wrap gap-2 mt-auto pt-2">
-                                <span class="text-xs font-semibold bg-white border border-slate-200 text-slate-600 px-2 py-1 rounded">Python</span>
-                                <span class="text-xs font-semibold bg-white border border-slate-200 text-slate-600 px-2 py-1 rounded">Google APIs</span>
-                            </div>
-                        </div>
-                        <div class="p-4 bg-white border-t border-slate-100 rounded-b-xl flex justify-between items-center gap-4">
-                            <div class="flex items-center gap-4">
-                                <a href="https://github.com/pualien/py-gcloud-connectors" target="_blank" rel="noopener noreferrer" class="text-primary font-medium text-sm hover:underline flex items-center"><i class="fa-brands fa-github mr-2"></i> Code</a>
-                                <a href="https://pypi.org/project/gcloud-connectors/" target="_blank" rel="noopener noreferrer" class="text-primary font-medium text-sm hover:underline flex items-center"><i class="fa-brands fa-python mr-2"></i> PyPI</a>
-                            </div>
-                            <img data-pypi-download-badge="gcloud-connectors" alt="" class="h-5" loading="lazy" src="">
-                        </div>
-                    </div>
-
-                    <!-- Project 4 -->
-                    <div class="bg-slate-50 border border-slate-100 rounded-xl flex flex-col h-full hover:-translate-y-1 transition-transform duration-300 shadow-sm">
-                        <div class="p-6 flex-grow flex flex-col">
-                            <div class="text-primary text-3xl mb-4"><i class="fa-brands fa-python" aria-hidden="true"></i></div>
-                            <h4 class="text-xl font-bold text-slate-900 mb-2">Pymongo-ssh</h4>
-                            <p class="text-slate-600 text-sm mb-4 flex-grow">Python utilities simplifying connections to MongoDB through an SSH tunnel, exposing the MongoDB URI as local after tunnel establishment.</p>
-                            <div class="flex flex-wrap gap-2 mt-auto pt-2">
-                                <span class="text-xs font-semibold bg-white border border-slate-200 text-slate-600 px-2 py-1 rounded">Python</span>
-                                <span class="text-xs font-semibold bg-white border border-slate-200 text-slate-600 px-2 py-1 rounded">MongoDB</span>
-                                <span class="text-xs font-semibold bg-white border border-slate-200 text-slate-600 px-2 py-1 rounded">SSH</span>
-                            </div>
-                        </div>
-                        <div class="p-4 bg-white border-t border-slate-100 rounded-b-xl flex justify-between items-center gap-4">
-                            <div class="flex items-center gap-4">
-                                <a href="https://github.com/pualien/pymongo-ssh" target="_blank" rel="noopener noreferrer" class="text-primary font-medium text-sm hover:underline flex items-center"><i class="fa-brands fa-github mr-2"></i> Code</a>
-                                <a href="https://pypi.org/project/pymongo-ssh/" target="_blank" rel="noopener noreferrer" class="text-primary font-medium text-sm hover:underline flex items-center"><i class="fa-brands fa-python mr-2"></i> PyPI</a>
-                            </div>
-                            <img data-pypi-download-badge="pymongo-ssh" alt="" class="h-5" loading="lazy" src="">
-                        </div>
-                    </div>
-
-                    <!-- Project 5 -->
-                    <div class="bg-slate-50 border border-slate-100 rounded-xl flex flex-col h-full hover:-translate-y-1 transition-transform duration-300 shadow-sm">
-                        <div class="p-6 flex-grow flex flex-col">
-                            <div class="text-primary text-3xl mb-4"><i class="fa-brands fa-python" aria-hidden="true"></i></div>
-                            <h4 class="text-xl font-bold text-slate-900 mb-2">SqlAlchemy-Connector</h4>
-                            <p class="text-slate-600 text-sm mb-4 flex-grow">Python library designed to seamlessly connect to SQLAlchemy-supported databases securely through an SSH tunnel.</p>
-                            <div class="flex flex-wrap gap-2 mt-auto pt-2">
-                                <span class="text-xs font-semibold bg-white border border-slate-200 text-slate-600 px-2 py-1 rounded">Python</span>
-                                <span class="text-xs font-semibold bg-white border border-slate-200 text-slate-600 px-2 py-1 rounded">SQLAlchemy</span>
-                                <span class="text-xs font-semibold bg-white border border-slate-200 text-slate-600 px-2 py-1 rounded">SSH</span>
-                            </div>
-                        </div>
-                        <div class="p-4 bg-white border-t border-slate-100 rounded-b-xl flex justify-between items-center gap-4">
-                            <div class="flex items-center gap-4">
-                                <a href="https://github.com/pualien/py-sqlalchemy-ssh-connector" target="_blank" rel="noopener noreferrer" class="text-primary font-medium text-sm hover:underline flex items-center"><i class="fa-brands fa-github mr-2"></i> Code</a>
-                                <a href="https://pypi.org/project/sqlalchemy-connector/" target="_blank" rel="noopener noreferrer" class="text-primary font-medium text-sm hover:underline flex items-center"><i class="fa-brands fa-python mr-2"></i> PyPI</a>
-                            </div>
-                            <img data-pypi-download-badge="sqlalchemy-connector" alt="" class="h-5" loading="lazy" src="">
-                        </div>
-                    </div>
-
-                    <!-- Project 6 -->
-                    <div class="bg-slate-50 border border-slate-100 rounded-xl flex flex-col h-full hover:-translate-y-1 transition-transform duration-300 shadow-sm">
-                        <div class="p-6 flex-grow flex flex-col">
-                            <div class="text-primary text-3xl mb-4"><i class="fa-solid fa-brain" aria-hidden="true"></i></div>
-                            <h4 class="text-xl font-bold text-slate-900 mb-2">fastText</h4>
-                            <p class="text-slate-600 text-sm mb-4 flex-grow">Fork of Facebook Research fastText focused on efficient learning of word representations and sentence classification for NLP use cases.</p>
-                            <div class="flex flex-wrap gap-2 mt-auto pt-2">
-                                <span class="text-xs font-semibold bg-white border border-slate-200 text-slate-600 px-2 py-1 rounded">NLP</span>
-                                <span class="text-xs font-semibold bg-white border border-slate-200 text-slate-600 px-2 py-1 rounded">Word Embeddings</span>
-                                <span class="text-xs font-semibold bg-white border border-slate-200 text-slate-600 px-2 py-1 rounded">Classification</span>
-                            </div>
-                        </div>
-                        <div class="p-4 bg-white border-t border-slate-100 rounded-b-xl flex justify-between items-center gap-4">
-                            <a href="https://github.com/pualien/fastText" target="_blank" rel="noopener noreferrer" class="text-primary font-medium text-sm hover:underline flex items-center"><i class="fa-brands fa-github mr-2"></i> View Code</a>
-                        </div>
-                    </div>
+                <div class="project__links">
+                    <a href="https://github.com/pualien/py-gcloud-connectors" target="_blank" rel="noopener noreferrer" class="project__link"><i class="fa-brands fa-github"></i> Code</a>
+                    <a href="https://pypi.org/project/gcloud-connectors/" target="_blank" rel="noopener noreferrer" class="project__link"><i class="fa-brands fa-python"></i> PyPI</a>
+                    <img data-pypi-badge="gcloud-connectors" class="pypi-badge" alt="" src="" loading="lazy">
                 </div>
             </div>
-        </section>
 
-        <!-- Education Section -->
-        <section id="education" class="py-20 bg-slate-50">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-sm font-bold tracking-widest text-primary uppercase mb-2">Academics</h2>
-                    <h3 class="text-3xl font-bold text-slate-900">Education & Certifications</h3>
+            <div class="project">
+                <div class="project__icon"><i class="fa-solid fa-database"></i></div>
+                <h3 class="project__name">Pymongo-SSH</h3>
+                <p class="project__desc">Simplify MongoDB connections through SSH tunnels — establishes the tunnel and exposes the URI as local.</p>
+                <div class="project__tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">MongoDB</span>
+                    <span class="tag">SSH</span>
                 </div>
-
-                <div class="space-y-6">
-                    <article class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex flex-col md:flex-row gap-6 items-start">
-                        <div class="bg-primary/10 text-primary w-16 h-16 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fa-solid fa-graduation-cap text-2xl" aria-hidden="true"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-xl font-bold text-slate-900">Master’s Degree in Computer Engineering</h4>
-                            <p class="text-slate-600 font-medium mb-2">Dipartimento di Ingegneria Enzo Ferrari, Modena, Italy <span class="text-slate-400 text-sm ml-2">Feb 2013 - Oct 2016</span></p>
-                            <p class="text-slate-600 text-sm leading-relaxed mb-2">
-                                <strong>Thesis:</strong> Implementation of Visual Analytics Dashboard addressed to Web Analytics and Search Engine Optimization.
-                            </p>
-                            <p class="text-sm text-slate-600"><strong>Final score:</strong> 107/110 – Passed the government exam and licensed as a professional engineer.</p>
-                        </div>
-                    </article>
-
-                    <article class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 flex flex-col md:flex-row gap-6 items-start">
-                        <div class="bg-blue-100 text-blue-600 w-16 h-16 rounded-lg flex items-center justify-center flex-shrink-0">
-                            <i class="fa-solid fa-certificate text-2xl" aria-hidden="true"></i>
-                        </div>
-                        <div>
-                            <h4 class="text-xl font-bold text-slate-900">IELTS International English Language Testing System</h4>
-                            <p class="text-slate-600 font-medium mb-2">British Council <span class="text-slate-400 text-sm ml-2">May 2013 - May 2015</span></p>
-                            <p class="text-slate-600 text-sm">Overall Band Score: 7.0 (Listening 6.5, Reading 8.5, Writing 6.0, Speaking 6.5)</p>
-                        </div>
-                    </article>
+                <div class="project__links">
+                    <a href="https://github.com/pualien/pymongo-ssh" target="_blank" rel="noopener noreferrer" class="project__link"><i class="fa-brands fa-github"></i> Code</a>
+                    <a href="https://pypi.org/project/pymongo-ssh/" target="_blank" rel="noopener noreferrer" class="project__link"><i class="fa-brands fa-python"></i> PyPI</a>
+                    <img data-pypi-badge="pymongo-ssh" class="pypi-badge" alt="" src="" loading="lazy">
                 </div>
             </div>
-        </section>
 
-        <!-- Skills Section -->
-        <section id="skills" class="py-20 bg-white border-t border-slate-100">
-            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center mb-16">
-                    <h2 class="text-sm font-bold tracking-widest text-primary uppercase mb-2">Expertise</h2>
-                    <h3 class="text-3xl font-bold text-slate-900">Technical Skills</h3>
+            <div class="project">
+                <div class="project__icon"><i class="fa-solid fa-link"></i></div>
+                <h3 class="project__name">SQLAlchemy Connector</h3>
+                <p class="project__desc">Connect to any SQLAlchemy-supported database securely through an SSH tunnel.</p>
+                <div class="project__tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">SQLAlchemy</span>
                 </div>
-
-                <div class="grid md:grid-cols-2 gap-10">
-                    <!-- Skill Category 1 -->
-                    <div>
-                        <h4 class="text-lg font-bold text-slate-800 mb-4 flex items-center"><i class="fa-solid fa-code text-primary mr-2" aria-hidden="true"></i> Frameworks & Tech</h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium border border-slate-200">Python</span>
-                            <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium border border-slate-200">Generative AI</span>
-                            <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium border border-slate-200">LangGraph</span>
-                            <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium border border-slate-200">Pandas / Numpy</span>
-                            <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium border border-slate-200">ScikitLearn</span>
-                            <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium border border-slate-200">Keras</span>
-                            <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium border border-slate-200">FastAPI / Django / Flask</span>
-                            <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium border border-slate-200">Apache Airflow</span>
-                            <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium border border-slate-200">PySpark</span>
-                            <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium border border-slate-200">JavaScript / Node / Angular</span>
-                            <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium border border-slate-200">Swift</span>
-                        </div>
-                    </div>
-
-                    <!-- Skill Category 2 -->
-                    <div>
-                        <h4 class="text-lg font-bold text-slate-800 mb-4 flex items-center"><i class="fa-solid fa-cloud text-primary mr-2" aria-hidden="true"></i> Cloud & DevOps</h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium border border-slate-200">Google Cloud Platform</span>
-                            <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium border border-slate-200">Microsoft Azure</span>
-                            <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium border border-slate-200">AWS</span>
-                            <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium border border-slate-200">Terraform / Terragrunt</span>
-                            <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium border border-slate-200">Docker / Kubernetes</span>
-                            <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium border border-slate-200">Helm</span>
-                            <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium border border-slate-200">RabbitMQ / Redis</span>
-                        </div>
-                    </div>
-
-                    <!-- Skill Category 3 -->
-                    <div>
-                        <h4 class="text-lg font-bold text-slate-800 mb-4 flex items-center"><i class="fa-solid fa-database text-primary mr-2" aria-hidden="true"></i> Databases</h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium border border-slate-200">SQL</span>
-                            <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium border border-slate-200">Google BigQuery</span>
-                            <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium border border-slate-200">Qdrant</span>
-                            <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium border border-slate-200">PGvector</span>
-                            <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium border border-slate-200">AWS Athena</span>
-                            <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium border border-slate-200">ElasticSearch</span>
-                            <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium border border-slate-200">DynamoDB / MongoDB</span>
-                        </div>
-                    </div>
-
-                    <!-- Skill Category 4 -->
-                    <div>
-                        <h4 class="text-lg font-bold text-slate-800 mb-4 flex items-center"><i class="fa-solid fa-chart-pie text-primary mr-2" aria-hidden="true"></i> Data Vis & Tools</h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium border border-slate-200">Looker</span>
-                            <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium border border-slate-200">Looker Studio</span>
-                            <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium border border-slate-200">PowerBI</span>
-                            <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium border border-slate-200">Tableau</span>
-                            <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium border border-slate-200">Qlik Sense</span>
-                            <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium border border-slate-200">Google Tag Manager</span>
-                            <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium border border-slate-200">ClickUp</span>
-                            <span class="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-sm font-medium border border-slate-200">Jira / Asana</span>
-                        </div>
-                    </div>
+                <div class="project__links">
+                    <a href="https://github.com/pualien/py-sqlalchemy-ssh-connector" target="_blank" rel="noopener noreferrer" class="project__link"><i class="fa-brands fa-github"></i> Code</a>
+                    <a href="https://pypi.org/project/sqlalchemy-connector/" target="_blank" rel="noopener noreferrer" class="project__link"><i class="fa-brands fa-python"></i> PyPI</a>
+                    <img data-pypi-badge="sqlalchemy-connector" class="pypi-badge" alt="" src="" loading="lazy">
                 </div>
             </div>
-        </section>
-    </main>
+
+            <div class="project">
+                <div class="project__icon"><i class="fa-solid fa-brain"></i></div>
+                <h3 class="project__name">fastText</h3>
+                <p class="project__desc">Fork of Facebook Research fastText — efficient learning of word representations and sentence classification for NLP.</p>
+                <div class="project__tags">
+                    <span class="tag">NLP</span>
+                    <span class="tag">Embeddings</span>
+                </div>
+                <div class="project__links">
+                    <a href="https://github.com/pualien/fastText" target="_blank" rel="noopener noreferrer" class="project__link"><i class="fa-brands fa-github"></i> Code</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Skills -->
+    <section id="skills" class="section">
+        <p class="section__label reveal">Expertise</p>
+        <h2 class="section__title reveal">Skills.</h2>
+
+        <div class="skills__grid">
+            <div class="skills__category reveal">
+                <h4>Languages & Frameworks</h4>
+                <ul class="skills__list">
+                    <li>Python — Pandas, NumPy, Scikit-Learn, Keras</li>
+                    <li>Generative AI — LangGraph, Azure OpenAI</li>
+                    <li>Web — FastAPI, Django, Flask, Angular, Node</li>
+                    <li>Data — PySpark, Apache Airflow</li>
+                    <li>Mobile — Swift</li>
+                </ul>
+            </div>
+            <div class="skills__category reveal">
+                <h4>Cloud & Infrastructure</h4>
+                <ul class="skills__list">
+                    <li>Google Cloud Platform</li>
+                    <li>Terraform / Terragrunt</li>
+                    <li>Microsoft Azure</li>
+                    <li>Amazon Web Services</li>
+                    <li>Docker, Kubernetes, Helm</li>
+                </ul>
+            </div>
+            <div class="skills__category reveal">
+                <h4>Databases</h4>
+                <ul class="skills__list">
+                    <li>BigQuery, Athena — analytical</li>
+                    <li>Qdrant, PGvector — vector</li>
+                    <li>ElasticSearch — search</li>
+                    <li>MongoDB, DynamoDB — document</li>
+                    <li>SQL — relational</li>
+                </ul>
+            </div>
+            <div class="skills__category reveal">
+                <h4>Data Visualization & Tools</h4>
+                <ul class="skills__list">
+                    <li>Looker / Looker Studio</li>
+                    <li>PowerBI, Tableau, Qlik Sense</li>
+                    <li>Google Tag Manager</li>
+                    <li>ClickUp, Jira, Asana</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <!-- Education -->
+    <section id="education" class="section">
+        <p class="section__label reveal">Education</p>
+        <h2 class="section__title reveal">Academics.</h2>
+
+        <div class="reveal">
+            <article class="edu__item">
+                <div class="edu__date">2013 — 2016</div>
+                <div>
+                    <h3 class="edu__degree">M.Sc. Computer Engineering</h3>
+                    <p class="edu__school">Dipartimento di Ingegneria Enzo Ferrari, Modena</p>
+                    <p class="edu__detail">Thesis on Visual Analytics for Web Analytics and SEO. Score: 107/110. Licensed professional engineer.</p>
+                </div>
+            </article>
+
+            <article class="edu__item">
+                <div class="edu__date">2013</div>
+                <div>
+                    <h3 class="edu__degree">IELTS — Band 7.0</h3>
+                    <p class="edu__school">British Council</p>
+                    <p class="edu__detail">Listening 6.5 · Reading 8.5 · Writing 6.0 · Speaking 6.5</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <hr class="divider">
 
     <!-- Footer / Contact -->
-    <footer id="contact" class="bg-slate-900 text-white py-12">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl font-bold mb-6">Let's Connect</h2>
-            <p class="text-slate-400 mb-8 max-w-lg mx-auto">
-                Open to select collaborations in data, cloud, and AI.<br>Reach out any time.
-            </p>
+    <footer id="contact" class="footer">
+        <h2 class="footer__title reveal">Let's connect.</h2>
+        <p class="footer__subtitle reveal">Open to select collaborations in data, cloud, and AI.</p>
 
-            <div class="flex justify-center space-x-6 mb-8">
-                <a href="https://github.com/pualien" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-white transition-colors transform hover:scale-110 duration-200 focus:outline-none focus:ring-2 focus:ring-primary rounded p-1" aria-label="Visit GitHub Profile">
-                    <i class="fa-brands fa-github text-3xl" aria-hidden="true"></i>
-                </a>
-                <a href="#" class="text-slate-300 hover:text-white transition-colors transform hover:scale-110 duration-200 focus:outline-none focus:ring-2 focus:ring-primary rounded p-1" aria-label="Visit LinkedIn Profile">
-                    <i class="fa-brands fa-linkedin text-3xl" aria-hidden="true"></i>
-                </a>
-                <a href="https://drive.google.com/file/d/1mevhnmBN4N5eMKPZhhYYFgUqVNpWaMCP/view" target="_blank" rel="noopener noreferrer" class="text-slate-300 hover:text-white transition-colors transform hover:scale-110 duration-200 focus:outline-none focus:ring-2 focus:ring-primary rounded p-1" aria-label="View CV">
-                    <i class="fa-solid fa-file-lines text-3xl" aria-hidden="true"></i>
-                </a>
-            </div>
+        <div class="footer__links reveal">
+            <a href="https://github.com/pualien" target="_blank" rel="noopener noreferrer" class="footer__link">
+                <i class="fa-brands fa-github"></i> GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/matteosenardi/" target="_blank" rel="noopener noreferrer" class="footer__link">
+                <i class="fa-brands fa-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://drive.google.com/file/d/1mevhnmBN4N5eMKPZhhYYFgUqVNpWaMCP/view" target="_blank" rel="noopener noreferrer" class="footer__link">
+                <i class="fa-solid fa-file-lines"></i> CV
+            </a>
+        </div>
 
-            <div class="text-slate-500 text-sm border-t border-slate-800 pt-8 mt-8">
-                <p>&copy; <span id="year"></span> Matteo Senardi. All rights reserved.</p>
-                <p class="mt-2">Turin, Italy</p>
-            </div>
+        <div class="footer__copy">
+            <p>&copy; <span id="year"></span> Matteo Senardi · Turin, Italy</p>
         </div>
     </footer>
 
-    <!-- Interactive Scripts -->
+    <!-- Scroll to Top -->
+    <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Set dynamic year in footer
-            document.getElementById('year').textContent = new Date().getFullYear();
+        // Year
+        document.getElementById('year').textContent = new Date().getFullYear();
 
-            // Mobile menu toggle logic
-            const mobileBtn = document.getElementById('mobile-menu-btn');
-            const mobileMenu = document.getElementById('mobile-menu');
+        // Dynamic years of experience (started Feb 2016)
+        const startYear = 2016;
+        const yearsExp = new Date().getFullYear() - startYear;
+        document.getElementById('years-exp').textContent = yearsExp;
 
-            mobileBtn.addEventListener('click', () => {
-                const isHidden = mobileMenu.classList.contains('hidden');
-                mobileMenu.classList.toggle('hidden');
-                mobileBtn.setAttribute('aria-expanded', !isHidden);
+        // Load PyPI download badges
+        document.querySelectorAll('img[data-pypi-badge]').forEach(badge => {
+            const pkg = badge.getAttribute('data-pypi-badge');
+            if (pkg) {
+                badge.src = `https://img.shields.io/pypi/dm/${encodeURIComponent(pkg)}`;
+                badge.alt = `${pkg} monthly downloads`;
+            }
+        });
+
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = themeToggle.querySelector('i');
+        const root = document.documentElement;
+
+        const applyTheme = (theme) => {
+            root.setAttribute('data-theme', theme);
+            themeIcon.className = theme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+            themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+        };
+
+        // Check saved preference only (light is default)
+        const saved = localStorage.getItem('theme');
+        if (saved === 'dark') {
+            applyTheme('dark');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+            applyTheme(next);
+            localStorage.setItem('theme', next);
+        });
+
+        // Mobile menu
+        const mobileBtn = document.getElementById('mobile-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileBtn.addEventListener('click', () => {
+            const open = mobileMenu.classList.toggle('open');
+            mobileBtn.setAttribute('aria-expanded', open);
+            mobileBtn.querySelector('i').className = open ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                mobileBtn.setAttribute('aria-expanded', 'false');
+                mobileBtn.querySelector('i').className = 'fa-solid fa-bars';
             });
+        });
 
-            // Close mobile menu when a link is clicked
-            const mobileLinks = mobileMenu.querySelectorAll('a');
-            mobileLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                    mobileBtn.setAttribute('aria-expanded', 'false');
-                });
+        // Active nav on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav__link');
+
+        const updateActive = () => {
+            const y = window.scrollY + 100;
+            let current = '';
+            sections.forEach(s => { if (s.offsetTop <= y) current = s.id; });
+            navLinks.forEach(l => {
+                l.classList.toggle('active', l.getAttribute('href') === `#${current}`);
             });
+        };
+        window.addEventListener('scroll', updateActive, { passive: true });
+        updateActive();
 
-            // Highlight active nav item based on scroll position
-            const sections = Array.from(document.querySelectorAll('section[id]'));
-            const navLinks = Array.from(document.querySelectorAll('[data-nav-link]'));
-
-            const setActiveLink = () => {
-                // Add an offset to trigger link active states sooner
-                const scrollY = window.scrollY + 120;
-                let activeSectionId = sections[0]?.id;
-
-                sections.forEach(section => {
-                    if (section.offsetTop <= scrollY) {
-                        activeSectionId = section.id;
-                    }
-                });
-
-                navLinks.forEach(link => {
-                    const isActive = link.getAttribute('href') === `#${activeSectionId}`;
-                    link.classList.toggle('text-primary', isActive);
-                    link.classList.toggle('font-semibold', isActive);
-                    link.classList.toggle('text-slate-600', !isActive);
-                });
-            };
-
-            setActiveLink();
-            window.addEventListener('scroll', setActiveLink, { passive: true });
-            window.addEventListener('resize', setActiveLink, { passive: true });
-
-            // Load PyPI badges dynamically
-            const pypiBadges = document.querySelectorAll('img[data-pypi-download-badge]');
-            pypiBadges.forEach((badge) => {
-                const packageName = badge.getAttribute('data-pypi-download-badge');
-                if (packageName) {
-                    badge.src = `https://img.shields.io/pypi/dm/${encodeURIComponent(packageName)}`;
-                    badge.alt = `PyPI monthly downloads for ${packageName}`;
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
                 }
             });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Scroll to top button
+        const scrollTopBtn = document.getElementById('scroll-top');
+        const toggleScrollTop = () => {
+            scrollTopBtn.classList.toggle('visible', window.scrollY > 500);
+        };
+        window.addEventListener('scroll', toggleScrollTop, { passive: true });
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
 </body>
 </html>
-
