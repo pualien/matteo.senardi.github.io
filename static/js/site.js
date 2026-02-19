@@ -188,12 +188,12 @@
             projectsLabel: 'Open Source',
             projectsTitle: 'Notable Projects.',
             projectDescriptions: [
-                'Python package for document conversion and text extraction - Office to PDF, multi-backend PDF parsing, text from images, audio/video, URLs, and YouTube transcripts.',
+                'Python package for document conversion and text extraction via algorithm/LLM  - Office to PDF, multi-backend PDF parsing, text from images, audio/video, URLs, and YouTube transcripts.',
                 'Chrome extension for debugging tag managers (GTM, Tealium, Commanders Act) and common tags like GA4, Floodlight, and Adobe Analytics.',
                 'Python utilities simplifying Google API connections - wrappers for BigQuery, Analytics, Drive, Search Console, Sheets, and Storage.',
                 'Simplify MongoDB connections through SSH tunnels - establishes the tunnel and exposes the URI as local.',
                 'Connect to any SQLAlchemy-supported database securely through an SSH tunnel.',
-                'Fork of Facebook Research fastText - efficient learning of word representations and sentence classification for NLP.'
+                'Fork of Facebook Research fastText for numpy version 2 compatibility - efficient learning of word representations and sentence classification for NLP.'
             ],
             projectLinkTexts: ['Code', 'PyPI', 'Website', 'Code', 'PyPI', 'Code', 'PyPI', 'Code', 'PyPI', 'Code'],
             projectLinkAriaLabels: [
@@ -317,12 +317,12 @@
             projectsLabel: 'Open Source',
             projectsTitle: 'Progetti principali.',
             projectDescriptions: [
-                'Package Python per conversione documenti ed estrazione testo - Office in PDF, parsing PDF multi-backend, testo da immagini, audio/video, URL e trascrizioni YouTube.',
+                'Package Python per conversione documenti ed estrazione testo via algoritmi/LLM - Office in PDF, parsing PDF multi-backend, testo da immagini, audio/video, URL e trascrizioni YouTube.',
                 'Estensione Chrome per il debug dei tag manager (GTM, Tealium, Commanders Act) e dei tag comuni come GA4, Floodlight e Adobe Analytics.',
                 'Utility Python che semplificano le connessioni alle API Google - wrapper per BigQuery, Analytics, Drive, Search Console, Sheets e Storage.',
                 "Semplifica le connessioni MongoDB tramite tunnel SSH - apre il tunnel ed espone l'URI in locale.",
                 'Connessione sicura a qualsiasi database supportato da SQLAlchemy tramite tunnel SSH.',
-                'Fork di fastText di Facebook Research - apprendimento efficiente di rappresentazioni di parole e classificazione di frasi per NLP.'
+                'Fork di fastText di Facebook Research per compatibilità con numpy versione 2 - apprendimento efficiente di rappresentazioni di parole e classificazione di frasi per NLP.'
             ],
             projectLinkTexts: ['Codice', 'PyPI', 'Sito', 'Codice', 'PyPI', 'Codice', 'PyPI', 'Codice', 'PyPI', 'Codice'],
             projectLinkAriaLabels: [
