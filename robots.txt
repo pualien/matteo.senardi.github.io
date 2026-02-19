@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pualien.github.io/matteo.senardi.github.io/sitemap.xml

@@ -3,816 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Matteo Senardi — Head of Data & AI, Cloud Architect, and Innovation Leader based in Turin, Italy.">
-    <title>Matteo Senardi</title>
+    <title>Matteo Senardi | Head of Data &amp; AI in Italy</title>
+    <meta name="description" content="Head of Data &amp; AI in Turin, Italy. Building cloud data platforms, LangGraph copilots, and practical AI systems. Contact for collaboration.">
+    <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+    <meta name="author" content="Matteo Senardi">
+    <meta name="theme-color" content="#0071e3">
+
+    <link rel="canonical" href="https://pualien.github.io/matteo.senardi.github.io/">
+    <link rel="alternate" hreflang="en" href="https://pualien.github.io/matteo.senardi.github.io/">
+    <link rel="alternate" hreflang="x-default" href="https://pualien.github.io/matteo.senardi.github.io/">
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Matteo Senardi — Head of Data & AI">
-    <meta property="og:description" content="Building modern cloud architectures, AI systems, and data platforms. Based in Turin, Italy.">
+    <meta property="og:title" content="Matteo Senardi | Head of Data &amp; AI in Italy">
+    <meta property="og:description" content="Head of Data &amp; AI in Turin, Italy. Cloud data platforms, LangGraph copilots, and practical AI systems.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="static/Matteo_Senard.jpg">
+    <meta property="og:url" content="https://pualien.github.io/matteo.senardi.github.io/">
+    <meta property="og:site_name" content="Matteo Senardi">
+    <meta property="og:image" content="https://pualien.github.io/matteo.senardi.github.io/static/images/Matteo_Senardi.jpg">
+    <meta property="og:image:alt" content="Portrait of Matteo Senardi, Head of Data and AI">
     <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="it_IT">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Matteo Senardi | Head of Data &amp; AI in Italy">
+    <meta name="twitter:description" content="Cloud data platforms, LangGraph copilots, and practical AI systems.">
+    <meta name="twitter:image" content="https://pualien.github.io/matteo.senardi.github.io/static/images/Matteo_Senardi.jpg">
+    <meta name="twitter:image:alt" content="Portrait of Matteo Senardi, Head of Data and AI">
 
     <!-- Favicon (inline SVG monogram) -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='8' fill='%231d1d1f'/><text x='16' y='22' font-family='system-ui,sans-serif' font-size='18' font-weight='700' fill='white' text-anchor='middle'>MS</text></svg>">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <style>
-        /* ─── Design Tokens ─── */
-        :root {
-            --font-display: 'Outfit', system-ui, sans-serif;
-            --font-body: 'DM Sans', system-ui, sans-serif;
-
-            --color-bg: #FBFBFB;
-            --color-surface: #FFFFFF;
-            --color-text-primary: #1d1d1f;
-            --color-text-secondary: #6e6e73;
-            --color-text-tertiary: #a1a1a6;
-            --color-accent: #0071e3;
-            --color-accent-hover: #0077ED;
-            --color-border: rgba(0, 0, 0, 0.06);
-            --color-border-strong: rgba(0, 0, 0, 0.1);
-            --color-tag-bg: #f5f5f7;
-            --color-tag-text: #1d1d1f;
-            --color-nav-bg: rgba(251, 251, 251, 0.82);
-
-            --radius-sm: 10px;
-            --radius-md: 16px;
-            --radius-lg: 24px;
-
-            --space-xs: 8px;
-            --space-sm: 16px;
-            --space-md: 24px;
-            --space-lg: 48px;
-            --space-xl: 80px;
-            --space-2xl: 120px;
-
-            --max-width: 980px;
-            --transition: 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
-        }
-
-        /* ─── Reset ─── */
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-        html {
-            scroll-behavior: smooth;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            text-rendering: optimizeLegibility;
-        }
-
-        ::selection {
-            background: var(--color-accent);
-            color: #fff;
-        }
-
-        body {
-            font-family: var(--font-body);
-            background: var(--color-bg);
-            color: var(--color-text-primary);
-            font-size: 17px;
-            line-height: 1.65;
-            font-weight: 400;
-            transition: background-color 0.4s ease, color 0.4s ease;
-        }
-
-        a {
-            color: var(--color-accent);
-            text-decoration: none;
-            transition: color var(--transition);
-        }
-        a:hover { color: var(--color-accent-hover); }
-
-        img { display: block; max-width: 100%; }
-
-        /* ─── Navigation ─── */
-        .nav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: var(--color-nav-bg);
-            backdrop-filter: saturate(180%) blur(20px);
-            -webkit-backdrop-filter: saturate(180%) blur(20px);
-            border-bottom: 1px solid var(--color-border);
-            transition: background-color 0.4s ease, border-color 0.4s ease;
-        }
-
-        .nav__inner {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: 0 var(--space-md);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 52px;
-        }
-
-        .nav__logo {
-            font-family: var(--font-display);
-            font-weight: 700;
-            font-size: 20px;
-            color: var(--color-text-primary);
-            letter-spacing: -0.03em;
-        }
-        .nav__logo span { color: var(--color-text-tertiary); font-weight: 400; }
-
-        .nav__links {
-            display: flex;
-            gap: var(--space-md);
-            list-style: none;
-        }
-
-        .nav__link {
-            font-family: var(--font-body);
-            font-size: 13px;
-            font-weight: 400;
-            color: var(--color-text-secondary);
-            transition: color var(--transition);
-            letter-spacing: 0.01em;
-        }
-        .nav__link:hover,
-        .nav__link.active { color: var(--color-text-primary); }
-
-        .nav__mobile-btn {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 20px;
-            color: var(--color-text-secondary);
-            cursor: pointer;
-            padding: 8px;
-        }
-
-        .nav__mobile-menu {
-            display: none;
-            position: absolute;
-            top: 52px;
-            left: 0;
-            right: 0;
-            background: var(--color-nav-bg);
-            backdrop-filter: saturate(180%) blur(20px);
-            -webkit-backdrop-filter: saturate(180%) blur(20px);
-            border-bottom: 1px solid var(--color-border);
-            padding: var(--space-sm) var(--space-md) var(--space-md);
-        }
-        .nav__mobile-menu.open { display: block; }
-        .nav__mobile-menu a {
-            display: block;
-            padding: 12px 0;
-            font-size: 15px;
-            color: var(--color-text-secondary);
-            border-bottom: 1px solid var(--color-border);
-        }
-        .nav__mobile-menu a:last-child { border-bottom: none; }
-        .nav__mobile-menu a:hover { color: var(--color-text-primary); }
-
-        /* ─── Section Containers ─── */
-        .section {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: var(--space-xl) var(--space-md);
-        }
-
-        .section--wide {
-            max-width: 1100px;
-        }
-
-        .section__label {
-            font-family: var(--font-body);
-            font-size: 13px;
-            font-weight: 500;
-            color: var(--color-text-tertiary);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: var(--space-xs);
-        }
-
-        .section__title {
-            font-family: var(--font-display);
-            font-size: clamp(32px, 5vw, 48px);
-            font-weight: 700;
-            color: var(--color-text-primary);
-            letter-spacing: -0.03em;
-            line-height: 1.15;
-            margin-bottom: var(--space-lg);
-        }
-
-        .divider {
-            border: none;
-            border-top: 1px solid var(--color-border);
-            margin: 0 auto;
-            max-width: var(--max-width);
-            transition: border-color 0.4s ease;
-        }
-
-        /* ─── Hero ─── */
-        .hero {
-            padding: var(--space-2xl) var(--space-md);
-            max-width: var(--max-width);
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .hero__avatar {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto var(--space-lg);
-            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-            background: var(--color-tag-bg);
-        }
-
-        .hero__name {
-            font-family: var(--font-display);
-            font-size: clamp(44px, 7vw, 72px);
-            font-weight: 700;
-            letter-spacing: -0.04em;
-            line-height: 1.05;
-            color: var(--color-text-primary);
-            margin-bottom: var(--space-sm);
-        }
-
-        .hero__title {
-            font-family: var(--font-display);
-            font-size: clamp(20px, 3vw, 28px);
-            font-weight: 400;
-            color: var(--color-text-secondary);
-            letter-spacing: -0.01em;
-            margin-bottom: var(--space-lg);
-        }
-
-        .hero__desc {
-            max-width: 560px;
-            margin: 0 auto var(--space-lg);
-            font-size: 17px;
-            color: var(--color-text-secondary);
-            line-height: 1.7;
-        }
-
-        .hero__actions {
-            display: flex;
-            gap: var(--space-sm);
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-family: var(--font-body);
-            font-size: 15px;
-            font-weight: 500;
-            padding: 12px 28px;
-            border-radius: 980px; /* Apple pill shape */
-            border: none;
-            cursor: pointer;
-            transition: all var(--transition);
-            letter-spacing: 0.01em;
-        }
-
-        .btn--primary {
-            background: var(--color-accent);
-            color: #fff;
-        }
-        .btn--primary:hover {
-            background: var(--color-accent-hover);
-            color: #fff;
-            transform: scale(1.02);
-        }
-
-        .btn--secondary {
-            background: transparent;
-            color: var(--color-accent);
-            border: 1px solid var(--color-border-strong);
-        }
-        .btn--secondary:hover {
-            background: var(--color-tag-bg);
-            color: var(--color-accent);
-            border-color: var(--color-border-strong);
-        }
-
-        /* ─── About ─── */
-        .about__grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--space-lg);
-            align-items: start;
-        }
-
-        .about__text p {
-            color: var(--color-text-secondary);
-            margin-bottom: var(--space-sm);
-            font-size: 17px;
-        }
-        .about__text p:last-child { margin-bottom: 0; }
-
-        .about__aside {
-            background: var(--color-tag-bg);
-            border-radius: var(--radius-md);
-            padding: var(--space-md) var(--space-md);
-        }
-
-        .about__stat {
-            padding: var(--space-sm) 0;
-            border-bottom: 1px solid var(--color-border);
-        }
-        .about__stat:last-child { border-bottom: none; }
-
-        .about__stat-value {
-            font-family: var(--font-display);
-            font-size: 28px;
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            color: var(--color-text-primary);
-        }
-
-        .about__stat-label {
-            font-size: 13px;
-            color: var(--color-text-tertiary);
-            margin-top: 2px;
-        }
-
-        /* ─── Experience ─── */
-        .exp__list { display: flex; flex-direction: column; gap: var(--space-lg); }
-
-        .exp__item {
-            display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: var(--space-lg);
-            align-items: start;
-            position: relative;
-            padding-left: 20px;
-            border-left: 2px solid var(--color-border);
-        }
-
-        .exp__item--current {
-            border-left-color: var(--color-accent);
-        }
-
-        .exp__item--current::before {
-            content: '';
-            position: absolute;
-            left: -5px;
-            top: 4px;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--color-accent);
-        }
-
-        .exp__meta {
-            position: sticky;
-            top: 70px;
-        }
-
-        .exp__date {
-            font-size: 14px;
-            color: var(--color-text-tertiary);
-            font-weight: 400;
-            white-space: nowrap;
-        }
-
-        .exp__company {
-            font-family: var(--font-display);
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--color-text-secondary);
-            margin-top: 4px;
-        }
-
-        .exp__role {
-            font-family: var(--font-display);
-            font-size: 22px;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            color: var(--color-text-primary);
-            margin-bottom: var(--space-sm);
-            line-height: 1.3;
-        }
-
-        .exp__desc {
-            color: var(--color-text-secondary);
-            font-size: 16px;
-            line-height: 1.7;
-        }
-
-        .exp__desc p { margin-bottom: var(--space-xs); }
-        .exp__desc p:last-child { margin-bottom: 0; }
-
-        /* ─── Projects ─── */
-        .projects__grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1px;
-            background: var(--color-border);
-            border-radius: var(--radius-md);
-            overflow: hidden;
-        }
-
-        @media (min-width: 1024px) {
-            .projects__grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        .project {
-            background: var(--color-surface);
-            padding: var(--space-lg) var(--space-md);
-            display: flex;
-            flex-direction: column;
-            transition: background var(--transition), color 0.4s ease;
-        }
-        .project:hover { background: var(--color-tag-bg); }
-
-        .project__icon {
-            font-size: 24px;
-            color: var(--color-text-primary);
-            margin-bottom: var(--space-sm);
-            opacity: 0.6;
-        }
-
-        .project__name {
-            font-family: var(--font-display);
-            font-size: 20px;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            color: var(--color-text-primary);
-            margin-bottom: 8px;
-        }
-
-        .project__desc {
-            font-size: 15px;
-            color: var(--color-text-secondary);
-            line-height: 1.6;
-            flex-grow: 1;
-            margin-bottom: var(--space-sm);
-        }
-
-        .project__tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-bottom: var(--space-sm);
-        }
-
-        .tag {
-            font-size: 12px;
-            font-weight: 500;
-            color: var(--color-text-secondary);
-            background: var(--color-tag-bg);
-            padding: 4px 10px;
-            border-radius: 6px;
-            letter-spacing: 0.01em;
-        }
-
-        .project__links {
-            display: flex;
-            gap: var(--space-sm);
-            align-items: center;
-        }
-
-        .project__links .pypi-badge {
-            height: 18px;
-            margin-left: auto;
-            opacity: 0.7;
-            transition: opacity var(--transition);
-        }
-        .project__links .pypi-badge:hover { opacity: 1; }
-
-        .project__link {
-            font-size: 13px;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .project__link i { font-size: 14px; }
-
-        /* ─── Skills ─── */
-        .skills__grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--space-lg);
-        }
-
-        .skills__category h4 {
-            font-family: var(--font-display);
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--color-text-tertiary);
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            margin-bottom: var(--space-sm);
-        }
-
-        .skills__list {
-            list-style: none;
-        }
-
-        .skills__list li {
-            font-size: 16px;
-            color: var(--color-text-primary);
-            padding: 8px 0;
-            border-bottom: 1px solid var(--color-border);
-            font-weight: 400;
-        }
-        .skills__list li:last-child { border-bottom: none; }
-
-        /* ─── Scroll to Top ─── */
-        .scroll-top {
-            position: fixed;
-            bottom: 32px;
-            right: 32px;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--color-surface);
-            border: 1px solid var(--color-border-strong);
-            color: var(--color-text-secondary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
-            pointer-events: none;
-            transform: translateY(8px);
-            transition: all var(--transition);
-            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-            z-index: 90;
-        }
-        .scroll-top:hover {
-            color: var(--color-text-primary);
-            border-color: var(--color-text-tertiary);
-            background: var(--color-tag-bg);
-        }
-        .scroll-top.visible {
-            opacity: 1;
-            pointer-events: auto;
-            transform: translateY(0);
-        }
-        .scroll-top i { font-size: 14px; }
-
-        /* ─── Education ─── */
-        .edu__item {
-            display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: var(--space-lg);
-            align-items: start;
-        }
-        .edu__item + .edu__item { margin-top: var(--space-lg); }
-
-        .edu__date {
-            font-size: 14px;
-            color: var(--color-text-tertiary);
-        }
-
-        .edu__degree {
-            font-family: var(--font-display);
-            font-size: 20px;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            color: var(--color-text-primary);
-            margin-bottom: 4px;
-        }
-
-        .edu__school {
-            font-size: 15px;
-            color: var(--color-text-secondary);
-            margin-bottom: var(--space-xs);
-        }
-
-        .edu__detail {
-            font-size: 15px;
-            color: var(--color-text-tertiary);
-        }
-
-        /* ─── Footer ─── */
-        .footer {
-            max-width: var(--max-width);
-            margin: 0 auto;
-            padding: var(--space-xl) var(--space-md) var(--space-lg);
-            text-align: center;
-        }
-
-        .footer__title {
-            font-family: var(--font-display);
-            font-size: clamp(32px, 5vw, 48px);
-            font-weight: 700;
-            letter-spacing: -0.03em;
-            color: var(--color-text-primary);
-            margin-bottom: var(--space-sm);
-        }
-
-        .footer__subtitle {
-            font-size: 17px;
-            color: var(--color-text-secondary);
-            margin-bottom: var(--space-lg);
-        }
-
-        .footer__links {
-            display: flex;
-            justify-content: center;
-            gap: var(--space-md);
-            margin-bottom: var(--space-xl);
-        }
-
-        .footer__link {
-            font-size: 15px;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .footer__copy {
-            font-size: 13px;
-            color: var(--color-text-tertiary);
-            border-top: 1px solid var(--color-border);
-            padding-top: var(--space-md);
-        }
-
-        /* ─── Responsive ─── */
-        @media (max-width: 768px) {
-            .nav__links { display: none; }
-            .nav__mobile-btn { display: block; }
-
-            .hero { padding: var(--space-xl) var(--space-md); }
-            .hero__avatar { width: 128px; height: 128px; }
-
-            .section { padding: var(--space-lg) var(--space-md); }
-
-            .about__grid {
-                grid-template-columns: 1fr;
-                gap: var(--space-md);
-            }
-            .about__aside { order: -1; }
-
-            .exp__item {
-                grid-template-columns: 1fr;
-                gap: var(--space-xs);
-                padding-left: 16px;
-            }
-            .exp__meta {
-                position: static;
-                display: flex;
-                gap: var(--space-xs);
-                align-items: baseline;
-            }
-
-            .projects__grid { grid-template-columns: 1fr; }
-
-            .project__links {
-                flex-wrap: wrap;
-            }
-            .project__links .pypi-badge {
-                margin-left: 0;
-            }
-
-            .skills__grid { grid-template-columns: 1fr; }
-
-            .edu__item {
-                grid-template-columns: 1fr;
-                gap: var(--space-xs);
-            }
-
-            .scroll-top {
-                bottom: 20px;
-                right: 20px;
-            }
-        }
-
-        /* ─── Scroll Reveal ─── */
-        .reveal {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.7s cubic-bezier(0.25, 0.1, 0.25, 1),
-                        transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1);
-        }
-        .reveal.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ─── Theme Toggle ─── */
-        .theme-toggle {
-            background: none;
-            border: 1px solid var(--color-border-strong);
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            color: var(--color-text-secondary);
-            transition: all var(--transition);
-            flex-shrink: 0;
-            margin-left: var(--space-sm);
-        }
-        .theme-toggle:hover {
-            color: var(--color-text-primary);
-            border-color: var(--color-text-tertiary);
-            background: var(--color-tag-bg);
-        }
-        .theme-toggle i { font-size: 14px; }
-
-        /* ─── Dark Theme ─── */
-        [data-theme="dark"] {
-            --color-bg: #101010;
-            --color-surface: #1a1a1a;
-            --color-text-primary: #f5f5f7;
-            --color-text-secondary: #a1a1a6;
-            --color-text-tertiary: #6e6e73;
-            --color-accent: #2997ff;
-            --color-accent-hover: #40a9ff;
-            --color-border: rgba(255, 255, 255, 0.08);
-            --color-border-strong: rgba(255, 255, 255, 0.14);
-            --color-tag-bg: #1d1d1f;
-            --color-tag-text: #f5f5f7;
-            --color-nav-bg: rgba(16, 16, 16, 0.82);
-        }
-
-        [data-theme="dark"] .hero__avatar {
-            box-shadow: 0 4px 24px rgba(0,0,0,0.3);
-        }
-
-        [data-theme="dark"] .project:hover {
-            background: #222;
-        }
-
-        [data-theme="dark"] .tag {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(255, 255, 255, 0.06);
-        }
-
-        [data-theme="dark"] .about__aside {
-            background: var(--color-surface);
-        }
-
-        [data-theme="dark"] .pypi-badge {
-            filter: invert(1) hue-rotate(180deg);
-        }
-
-        [data-theme="dark"] .footer__copy {
-            border-top-color: rgba(255, 255, 255, 0.08);
-        }
-
-        [data-theme="dark"] .scroll-top {
-            background: var(--color-surface);
-            box-shadow: 0 2px 12px rgba(0,0,0,0.3);
-        }
-    </style>
+    <link rel="preload" as="image" href="static/images/Matteo_Senardi-320.webp" imagesrcset="static/images/Matteo_Senardi-160.webp 160w, static/images/Matteo_Senardi-320.webp 320w" imagesizes="(max-width: 768px) 128px, 160px" type="image/webp" fetchpriority="high">
+    <script>(function(){try{var savedTheme=localStorage.getItem('theme');if(savedTheme==='dark'||savedTheme==='light'){document.documentElement.setAttribute('data-theme',savedTheme);}}catch(e){}})();</script>
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "WebSite",
+                    "@id": "https://pualien.github.io/matteo.senardi.github.io/#website",
+                    "url": "https://pualien.github.io/matteo.senardi.github.io/",
+                    "name": "Matteo Senardi | Head of Data & AI",
+                    "description": "Personal portfolio of Matteo Senardi, Head of Data & AI in Turin, Italy.",
+                    "inLanguage": "en"
+                },
+                {
+                    "@type": "Person",
+                    "@id": "https://pualien.github.io/matteo.senardi.github.io/#person",
+                    "name": "Matteo Senardi",
+                    "jobTitle": "Head of Data & AI",
+                    "url": "https://pualien.github.io/matteo.senardi.github.io/",
+                    "image": "https://pualien.github.io/matteo.senardi.github.io/static/images/Matteo_Senardi.jpg",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressLocality": "Turin",
+                        "addressCountry": "IT"
+                    },
+                    "worksFor": {
+                        "@type": "Organization",
+                        "name": "Gruppo Dylog"
+                    },
+                    "sameAs": [
+                        "https://github.com/pualien",
+                        "https://www.linkedin.com/in/matteosenardi/"
+                    ],
+                    "knowsAbout": [
+                        "Data",
+                        "Artificial Intelligence",
+                        "LangGraph",
+                        "Copilot",
+                        "Cloud Architecture"
+                    ],
+                    "contactPoint": [
+                        {
+                            "@type": "ContactPoint",
+                            "contactType": "professional inquiries",
+                            "url": "https://www.linkedin.com/in/matteosenardi/",
+                            "availableLanguage": [
+                                "en",
+                                "it"
+                            ]
+                        }
+                    ],
+                    "mainEntityOfPage": {
+                        "@id": "https://pualien.github.io/matteo.senardi.github.io/#website"
+                    }
+                }
+            ]
+        }
+    </script>
+    <link rel="preload" href="static/css/site.min.css" as="style">
+    <link rel="stylesheet" href="static/css/site.min.css">
 </head>
 <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
 
     <!-- Navigation -->
     <nav class="nav" aria-label="Main Navigation">
         <div class="nav__inner">
-            <a href="#" class="nav__logo">Matteo <span>Senardi</span></a>
+            <a href="#home" class="nav__logo">Matteo <span>Senardi</span></a>
             <ul class="nav__links">
                 <li><a href="#about" class="nav__link">About</a></li>
                 <li><a href="#experience" class="nav__link">Experience</a></li>
                 <li><a href="#projects" class="nav__link">Projects</a></li>
                 <li><a href="#skills" class="nav__link">Skills</a></li>
                 <li><a href="#education" class="nav__link">Education</a></li>
+                <li><a href="#contact" class="nav__link">Contact</a></li>
             </ul>
             <div style="display:flex;align-items:center;gap:8px;">
                 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
-                    <i class="fa-solid fa-moon"></i>
+                    <span class="glyph" data-theme-icon aria-hidden="true">☾</span>
                 </button>
-                <button class="nav__mobile-btn" id="mobile-btn" aria-label="Toggle menu" aria-expanded="false">
-                    <i class="fa-solid fa-bars"></i>
+                <button class="nav__mobile-btn" id="mobile-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobile-menu">
+                    <span class="glyph" data-mobile-icon aria-hidden="true">☰</span>
                 </button>
             </div>
         </div>
-        <div class="nav__mobile-menu" id="mobile-menu">
+        <div class="nav__mobile-menu" id="mobile-menu" aria-label="Mobile Navigation" aria-hidden="true">
             <a href="#about">About</a>
             <a href="#experience">Experience</a>
             <a href="#projects">Projects</a>
             <a href="#skills">Skills</a>
             <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
         </div>
     </nav>
 
+    <main id="main-content">
     <!-- Hero -->
     <header class="hero" id="home">
-        <img src="static/Matteo_Senard.jpg" alt="Matteo Senardi" class="hero__avatar reveal" fetchpriority="high">
-        <h1 class="hero__name reveal">Matteo Senardi</h1>
-        <p class="hero__title reveal">Head of Data & AI</p>
-        <p class="hero__desc reveal">
-            Building modern cloud architectures, AI systems, and data platforms that drive real business outcomes. Based in Turin.
+        <picture>
+            <source
+                srcset="static/images/Matteo_Senardi-160.webp 160w, static/images/Matteo_Senardi-320.webp 320w"
+                sizes="(max-width: 768px) 128px, 160px"
+                type="image/webp"
+            >
+            <source
+                srcset="static/images/Matteo_Senardi-160.jpg 160w, static/images/Matteo_Senardi-320.jpg 320w"
+                sizes="(max-width: 768px) 128px, 160px"
+                type="image/jpeg"
+            >
+            <img
+                src="static/images/Matteo_Senardi-160.jpg"
+                srcset="static/images/Matteo_Senardi-160.jpg 160w, static/images/Matteo_Senardi-320.jpg 320w"
+                sizes="(max-width: 768px) 128px, 160px"
+                alt="Matteo Senardi, Head of Data and AI in Turin, Italy"
+                class="hero__avatar"
+                width="160"
+                height="160"
+                loading="eager"
+                decoding="async"
+                fetchpriority="high"
+            >
+        </picture>
+        <h1 class="hero__name">Matteo Senardi</h1>
+        <p class="hero__title">Head of Data, AI &amp; Cloud Architecture</p>
+        <p class="hero__desc">
+            I help companies turn data into measurable growth with cloud platforms, LangGraph agent workflows, and practical AI copilots.
+            <a href="#experience">Review my leadership experience</a>,
+            <a href="#projects">explore Data &amp; AI projects</a>,
+            or <a href="#contact">contact me for collaboration</a>.
         </p>
-        <div class="hero__actions reveal">
-            <a href="https://github.com/pualien" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
-                <i class="fa-brands fa-github"></i> GitHub
-            </a>
-            <a href="#contact" class="btn btn--secondary">Get in Touch</a>
+        <div class="hero__actions">
+            <a href="#contact" class="btn btn--primary">Contact Matteo</a>
+            <a href="#projects" class="btn btn--secondary">View Data &amp; AI Projects</a>
         </div>
     </header>
 
@@ -829,12 +185,13 @@
                 </p>
                 <p>
                     My work spans software engineering, machine learning, and cloud architecture across GCP, Azure, and AWS — designing scalable decoupled environments and orchestrating AI agent systems with multiple graph architectures and LLMs.
+                    Explore my <a href="#skills">cloud and AI technology stack</a> and <a href="#experience">recent Data leadership roles</a>.
                 </p>
             </div>
             <div class="about__aside reveal">
                 <div class="about__stat">
                     <div class="about__stat-value"><span id="years-exp"></span>+</div>
-                    <div class="about__stat-label">Years in Data, Cloud & AI Engineering</div>
+                    <div class="about__stat-label">Years in Data, Cloud &amp; AI Engineering</div>
                 </div>
                 <div class="about__stat">
                     <div class="about__stat-value">3</div>
@@ -862,7 +219,7 @@
                     <div class="exp__company">Gruppo Dylog</div>
                 </div>
                 <div>
-                    <h3 class="exp__role">Head of Data & AI</h3>
+                    <h3 class="exp__role">Head of Data &amp; AI</h3>
                     <div class="exp__desc">
                         <p>Leading data science and AI teams to develop products that enhance operational efficiency and customer experience. Overseeing AI-based payment reconciliation, natural-language copilots, and advanced analytics platforms.</p>
                         <p>Architecting solutions with Microsoft Azure, Terraform, Apache Airflow, PowerBI, and Azure OpenAI LLMs.</p>
@@ -876,7 +233,7 @@
                     <div class="exp__company">Docsity — Ladybird S.r.l.</div>
                 </div>
                 <div>
-                    <h3 class="exp__role">Head of Data & Analytics / Innovation</h3>
+                    <h3 class="exp__role">Head of Data &amp; Analytics / Innovation</h3>
                     <div class="exp__desc">
                         <p>Envisioning and executing data strategies for informed decision-making. Designed end-to-end data infrastructure on Google Cloud Platform managed through Terraform and Apache Airflow.</p>
                         <p>Governing analytics through Looker and enriching products with LLM-powered agent capabilities.</p>
@@ -905,7 +262,7 @@
                 <div>
                     <h3 class="exp__role">Innovation Engineer / Data Scientist</h3>
                     <div class="exp__desc">
-                        <p>Lead developer for Big Data architectures merging APIs, scraped data, and CRMs. Deployed ML techniques — forecasting, clustering, NLP — for clients including Allianz, Bulgari, Mediaset, and Johnson & Johnson.</p>
+                        <p>Lead developer for Big Data architectures merging APIs, scraped data, and CRMs. Deployed ML techniques — forecasting, clustering, NLP — for clients including Allianz, Bulgari, Mediaset, and Johnson &amp; Johnson.</p>
                     </div>
                 </div>
             </article>
@@ -921,7 +278,7 @@
 
         <div class="projects__grid reveal">
             <div class="project">
-                <div class="project__icon"><i class="fa-solid fa-file-lines"></i></div>
+                <div class="project__icon" aria-hidden="true">TXT</div>
                 <h3 class="project__name">Polytext</h3>
                 <p class="project__desc">Python package for document conversion and text extraction — Office to PDF, multi-backend PDF parsing, text from images, audio/video, URLs, and YouTube transcripts.</p>
                 <div class="project__tags">
@@ -930,14 +287,14 @@
                     <span class="tag">Extraction</span>
                 </div>
                 <div class="project__links">
-                    <a href="https://github.com/docsity/polytext" target="_blank" rel="noopener noreferrer" class="project__link"><i class="fa-brands fa-github"></i> Code</a>
-                    <a href="https://pypi.org/project/polytext/" target="_blank" rel="noopener noreferrer" class="project__link"><i class="fa-brands fa-python"></i> PyPI</a>
-                    <img data-pypi-badge="polytext" class="pypi-badge" alt="" src="" loading="lazy">
+                    <a href="https://github.com/docsity/polytext" target="_blank" rel="noopener noreferrer" class="project__link">Code</a>
+                    <a href="https://pypi.org/project/polytext/" target="_blank" rel="noopener noreferrer" class="project__link">PyPI</a>
+                    <img data-pypi-badge="polytext" class="pypi-badge" alt="polytext monthly downloads badge" src="" loading="lazy" decoding="async" width="108" height="20">
                 </div>
             </div>
 
             <div class="project">
-                <div class="project__icon"><i class="fa-brands fa-chrome"></i></div>
+                <div class="project__icon" aria-hidden="true">WEB</div>
                 <h3 class="project__name">Trackie</h3>
                 <p class="project__desc">Chrome extension for debugging tag managers (GTM, Tealium, Commanders Act) and common tags like GA4, Floodlight, and Adobe Analytics.</p>
                 <div class="project__tags">
@@ -945,12 +302,12 @@
                     <span class="tag">Analytics</span>
                 </div>
                 <div class="project__links">
-                    <a href="https://pualien.github.io/Trackie/" target="_blank" rel="noopener noreferrer" class="project__link"><i class="fa-solid fa-arrow-up-right-from-square"></i> Website</a>
+                    <a href="https://pualien.github.io/Trackie/" target="_blank" rel="noopener noreferrer" class="project__link">Website</a>
                 </div>
             </div>
 
             <div class="project">
-                <div class="project__icon"><i class="fa-brands fa-google"></i></div>
+                <div class="project__icon" aria-hidden="true">GCP</div>
                 <h3 class="project__name">Gcloud Connectors</h3>
                 <p class="project__desc">Python utilities simplifying Google API connections — wrappers for BigQuery, Analytics, Drive, Search Console, Sheets, and Storage.</p>
                 <div class="project__tags">
@@ -958,14 +315,14 @@
                     <span class="tag">Google APIs</span>
                 </div>
                 <div class="project__links">
-                    <a href="https://github.com/pualien/py-gcloud-connectors" target="_blank" rel="noopener noreferrer" class="project__link"><i class="fa-brands fa-github"></i> Code</a>
-                    <a href="https://pypi.org/project/gcloud-connectors/" target="_blank" rel="noopener noreferrer" class="project__link"><i class="fa-brands fa-python"></i> PyPI</a>
-                    <img data-pypi-badge="gcloud-connectors" class="pypi-badge" alt="" src="" loading="lazy">
+                    <a href="https://github.com/pualien/py-gcloud-connectors" target="_blank" rel="noopener noreferrer" class="project__link">Code</a>
+                    <a href="https://pypi.org/project/gcloud-connectors/" target="_blank" rel="noopener noreferrer" class="project__link">PyPI</a>
+                    <img data-pypi-badge="gcloud-connectors" class="pypi-badge" alt="gcloud-connectors monthly downloads badge" src="" loading="lazy" decoding="async" width="108" height="20">
                 </div>
             </div>
 
             <div class="project">
-                <div class="project__icon"><i class="fa-solid fa-database"></i></div>
+                <div class="project__icon" aria-hidden="true">DB</div>
                 <h3 class="project__name">Pymongo-SSH</h3>
                 <p class="project__desc">Simplify MongoDB connections through SSH tunnels — establishes the tunnel and exposes the URI as local.</p>
                 <div class="project__tags">
@@ -974,14 +331,14 @@
                     <span class="tag">SSH</span>
                 </div>
                 <div class="project__links">
-                    <a href="https://github.com/pualien/pymongo-ssh" target="_blank" rel="noopener noreferrer" class="project__link"><i class="fa-brands fa-github"></i> Code</a>
-                    <a href="https://pypi.org/project/pymongo-ssh/" target="_blank" rel="noopener noreferrer" class="project__link"><i class="fa-brands fa-python"></i> PyPI</a>
-                    <img data-pypi-badge="pymongo-ssh" class="pypi-badge" alt="" src="" loading="lazy">
+                    <a href="https://github.com/pualien/pymongo-ssh" target="_blank" rel="noopener noreferrer" class="project__link">Code</a>
+                    <a href="https://pypi.org/project/pymongo-ssh/" target="_blank" rel="noopener noreferrer" class="project__link">PyPI</a>
+                    <img data-pypi-badge="pymongo-ssh" class="pypi-badge" alt="pymongo-ssh monthly downloads badge" src="" loading="lazy" decoding="async" width="108" height="20">
                 </div>
             </div>
 
             <div class="project">
-                <div class="project__icon"><i class="fa-solid fa-link"></i></div>
+                <div class="project__icon" aria-hidden="true">SQL</div>
                 <h3 class="project__name">SQLAlchemy Connector</h3>
                 <p class="project__desc">Connect to any SQLAlchemy-supported database securely through an SSH tunnel.</p>
                 <div class="project__tags">
@@ -989,14 +346,14 @@
                     <span class="tag">SQLAlchemy</span>
                 </div>
                 <div class="project__links">
-                    <a href="https://github.com/pualien/py-sqlalchemy-ssh-connector" target="_blank" rel="noopener noreferrer" class="project__link"><i class="fa-brands fa-github"></i> Code</a>
-                    <a href="https://pypi.org/project/sqlalchemy-connector/" target="_blank" rel="noopener noreferrer" class="project__link"><i class="fa-brands fa-python"></i> PyPI</a>
-                    <img data-pypi-badge="sqlalchemy-connector" class="pypi-badge" alt="" src="" loading="lazy">
+                    <a href="https://github.com/pualien/py-sqlalchemy-ssh-connector" target="_blank" rel="noopener noreferrer" class="project__link">Code</a>
+                    <a href="https://pypi.org/project/sqlalchemy-connector/" target="_blank" rel="noopener noreferrer" class="project__link">PyPI</a>
+                    <img data-pypi-badge="sqlalchemy-connector" class="pypi-badge" alt="sqlalchemy-connector monthly downloads badge" src="" loading="lazy" decoding="async" width="108" height="20">
                 </div>
             </div>
 
             <div class="project">
-                <div class="project__icon"><i class="fa-solid fa-brain"></i></div>
+                <div class="project__icon" aria-hidden="true">NLP</div>
                 <h3 class="project__name">fastText</h3>
                 <p class="project__desc">Fork of Facebook Research fastText — efficient learning of word representations and sentence classification for NLP.</p>
                 <div class="project__tags">
@@ -1004,7 +361,7 @@
                     <span class="tag">Embeddings</span>
                 </div>
                 <div class="project__links">
-                    <a href="https://github.com/pualien/fastText" target="_blank" rel="noopener noreferrer" class="project__link"><i class="fa-brands fa-github"></i> Code</a>
+                    <a href="https://github.com/pualien/fastText" target="_blank" rel="noopener noreferrer" class="project__link">Code</a>
                 </div>
             </div>
         </div>
@@ -1019,7 +376,7 @@
 
         <div class="skills__grid">
             <div class="skills__category reveal">
-                <h4>Languages & Frameworks</h4>
+                <h3>Languages &amp; Frameworks</h3>
                 <ul class="skills__list">
                     <li>Python — Pandas, NumPy, Scikit-Learn, Keras</li>
                     <li>Generative AI — LangGraph, Azure OpenAI</li>
@@ -1029,7 +386,7 @@
                 </ul>
             </div>
             <div class="skills__category reveal">
-                <h4>Cloud & Infrastructure</h4>
+                <h3>Cloud &amp; Infrastructure</h3>
                 <ul class="skills__list">
                     <li>Google Cloud Platform</li>
                     <li>Terraform / Terragrunt</li>
@@ -1039,7 +396,7 @@
                 </ul>
             </div>
             <div class="skills__category reveal">
-                <h4>Databases</h4>
+                <h3>Databases</h3>
                 <ul class="skills__list">
                     <li>BigQuery, Athena — analytical</li>
                     <li>Qdrant, PGvector — vector</li>
@@ -1049,7 +406,7 @@
                 </ul>
             </div>
             <div class="skills__category reveal">
-                <h4>Data Visualization & Tools</h4>
+                <h3>Data Visualization &amp; Tools</h3>
                 <ul class="skills__list">
                     <li>Looker / Looker Studio</li>
                     <li>PowerBI, Tableau, Qlik Sense</li>
@@ -1089,21 +446,22 @@
     </section>
 
     <hr class="divider">
+    </main>
 
     <!-- Footer / Contact -->
     <footer id="contact" class="footer">
         <h2 class="footer__title reveal">Let's connect.</h2>
-        <p class="footer__subtitle reveal">Open to select collaborations in data, cloud, and AI.</p>
+        <p class="footer__subtitle reveal">Open to select collaborations in Data, AI, LangGraph copilots, and cloud architecture.</p>
 
         <div class="footer__links reveal">
             <a href="https://github.com/pualien" target="_blank" rel="noopener noreferrer" class="footer__link">
-                <i class="fa-brands fa-github"></i> GitHub
+                View GitHub repositories
             </a>
             <a href="https://www.linkedin.com/in/matteosenardi/" target="_blank" rel="noopener noreferrer" class="footer__link">
-                <i class="fa-brands fa-linkedin"></i> LinkedIn
+                Contact on LinkedIn
             </a>
             <a href="https://drive.google.com/file/d/1mevhnmBN4N5eMKPZhhYYFgUqVNpWaMCP/view" target="_blank" rel="noopener noreferrer" class="footer__link">
-                <i class="fa-solid fa-file-lines"></i> CV
+                Download CV
             </a>
         </div>
 
@@ -1114,104 +472,9 @@
 
     <!-- Scroll to Top -->
     <button class="scroll-top" id="scroll-top" aria-label="Scroll to top">
-        <i class="fa-solid fa-arrow-up"></i>
+        <span class="glyph" aria-hidden="true">↑</span>
     </button>
 
-    <script>
-        // Year
-        document.getElementById('year').textContent = new Date().getFullYear();
-
-        // Dynamic years of experience (started Feb 2016)
-        const startYear = 2016;
-        const yearsExp = new Date().getFullYear() - startYear;
-        document.getElementById('years-exp').textContent = yearsExp;
-
-        // Load PyPI download badges
-        document.querySelectorAll('img[data-pypi-badge]').forEach(badge => {
-            const pkg = badge.getAttribute('data-pypi-badge');
-            if (pkg) {
-                badge.src = `https://img.shields.io/pypi/dm/${encodeURIComponent(pkg)}`;
-                badge.alt = `${pkg} monthly downloads`;
-            }
-        });
-
-        // Theme toggle
-        const themeToggle = document.getElementById('theme-toggle');
-        const themeIcon = themeToggle.querySelector('i');
-        const root = document.documentElement;
-
-        const applyTheme = (theme) => {
-            root.setAttribute('data-theme', theme);
-            themeIcon.className = theme === 'dark' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
-            themeToggle.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
-        };
-
-        // Check saved preference only (light is default)
-        const saved = localStorage.getItem('theme');
-        if (saved === 'dark') {
-            applyTheme('dark');
-        }
-
-        themeToggle.addEventListener('click', () => {
-            const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-            applyTheme(next);
-            localStorage.setItem('theme', next);
-        });
-
-        // Mobile menu
-        const mobileBtn = document.getElementById('mobile-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileBtn.addEventListener('click', () => {
-            const open = mobileMenu.classList.toggle('open');
-            mobileBtn.setAttribute('aria-expanded', open);
-            mobileBtn.querySelector('i').className = open ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
-        });
-
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('open');
-                mobileBtn.setAttribute('aria-expanded', 'false');
-                mobileBtn.querySelector('i').className = 'fa-solid fa-bars';
-            });
-        });
-
-        // Active nav on scroll
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('.nav__link');
-
-        const updateActive = () => {
-            const y = window.scrollY + 100;
-            let current = '';
-            sections.forEach(s => { if (s.offsetTop <= y) current = s.id; });
-            navLinks.forEach(l => {
-                l.classList.toggle('active', l.getAttribute('href') === `#${current}`);
-            });
-        };
-        window.addEventListener('scroll', updateActive, { passive: true });
-        updateActive();
-
-        // Scroll reveal
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-        // Scroll to top button
-        const scrollTopBtn = document.getElementById('scroll-top');
-        const toggleScrollTop = () => {
-            scrollTopBtn.classList.toggle('visible', window.scrollY > 500);
-        };
-        window.addEventListener('scroll', toggleScrollTop, { passive: true });
-        scrollTopBtn.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    </script>
+    <script src="static/js/site.min.js" defer></script>
 </body>
 </html>
