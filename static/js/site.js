@@ -129,6 +129,25 @@
                 closeMobileMenu();
             }
         });
+
+        doc.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && mobileMenu.classList.contains('open')) {
+                closeMobileMenu();
+                mobileBtn.focus();
+            }
+        });
+
+        doc.addEventListener('click', function (event) {
+            var target = event.target;
+            if (
+                mobileMenu.classList.contains('open') &&
+                target &&
+                !mobileMenu.contains(target) &&
+                !mobileBtn.contains(target)
+            ) {
+                closeMobileMenu();
+            }
+        });
     }
 
     var initPyPIBadges = function () {
