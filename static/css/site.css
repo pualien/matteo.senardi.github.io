@@ -136,6 +136,13 @@
             list-style: none;
         }
 
+        .nav__controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: var(--space-sm);
+        }
+
         .nav__link {
             font-family: var(--font-body);
             font-size: 13px;
@@ -770,14 +777,28 @@
             transition: background-color var(--transition), border-color var(--transition),
                         color var(--transition);
             flex-shrink: 0;
-            margin-left: var(--space-sm);
+            margin-left: 0;
+        }
+        .language-toggle {
+            width: 54px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+        }
+        .language-toggle .glyph {
+            font-size: 12px;
+            font-weight: 700;
         }
         .theme-toggle:hover {
             color: var(--color-text-primary);
             border-color: var(--color-text-tertiary);
             background: var(--color-tag-bg);
         }
-        .theme-toggle .glyph,
+        .theme-toggle [data-theme-icon] {
+            font-size: 19px;
+            line-height: 1;
+        }
         .nav__mobile-btn .glyph,
         .scroll-top .glyph {
             font-size: 14px;
