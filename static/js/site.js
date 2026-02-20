@@ -274,9 +274,9 @@
             navLinks: ['Chi sono', 'Esperienza', 'Progetti', 'Competenze', 'Formazione', 'Contatti'],
             heroName: 'Head of Data & AI in Italia per Cloud Platform e Copilot AI',
             heroTitle:
-                'Aiuto le aziende a costruire piattaforme dati su GCP, Azure e AWS con copilot AI in produzione che migliorano efficienza, analytics e customer experience.',
+                'Supoorto le aziende a costruire piattaforme dati su GCP, Azure e AWS con copilot AI in produzione che migliorano efficienza, analytics e customer experience.',
             heroDescriptionHtml:
-                'Aiuto le aziende a trasformare i dati in crescita misurabile con piattaforme cloud, workflow agentici LangGraph e copilot AI concreti. <a href="#experience">Scopri la mia esperienza di leadership</a>, <a href="#projects">esplora i progetti Data &amp; AI</a>, oppure <a href="#contact">contattami per collaborare</a>. Basato a Torino, Italia, disponibile per progetti da remoto e internazionali.',
+                'Supporto le aziende a trasformare i dati in crescita misurabile con piattaforme cloud, workflow agentici LangGraph e copilot AI concreti. <a href="#experience">Scopri la mia esperienza di leadership</a>, <a href="#projects">esplora i progetti Data &amp; AI</a>, oppure <a href="#contact">contattami per collaborare</a>. Basato a Torino, Italia, disponibile per progetti da remoto e internazionali.',
             heroPrimaryText: 'Contattami su LinkedIn',
             heroPrimaryAria: 'Contattami su LinkedIn',
             heroSecondaryText: 'Vedi i progetti Data & AI',
