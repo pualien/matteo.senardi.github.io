@@ -3,6 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M6JLQ6KQ');</script>
+    <!-- End Google Tag Manager -->
     <title>Matteo Senardi | Head of Data &amp; AI in Italy for Cloud Platforms and AI Copilots</title>
     <meta name="description" content="Head of Data &amp; AI in Turin, Italy. I facilitate companies build GCP, Azure, and AWS data platforms with production LangGraph AI copilots that improve efficiency and analytics.">
     <meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
@@ -99,6 +106,10 @@
     <link rel="stylesheet" href="static/css/site.min.css">
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M6JLQ6KQ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <a class="skip-link" href="#main-content">Skip to main content</a>
 
     <!-- Navigation -->
@@ -479,6 +490,86 @@
         <span class="glyph" aria-hidden="true">↑</span>
     </button>
 
+    <script>
+        (function () {
+            var doc = document;
+            var win = window;
+            var root = doc.documentElement;
+
+            var pushDataLayerEvent = function (payload) {
+                if (!payload || typeof payload !== 'object') {
+                    return;
+                }
+
+                win.dataLayer = win.dataLayer || [];
+                win.dataLayer.push(payload);
+            };
+
+            win.pushDataLayerEvent = pushDataLayerEvent;
+
+            if (win.__outboundLinkTrackingInitialized === true) {
+                return;
+            }
+
+            win.__outboundLinkTrackingInitialized = true;
+
+            var getCurrentTheme = function () {
+                return root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+            };
+
+            var getCurrentLanguage = function () {
+                return root.getAttribute('lang') === 'it' ? 'it' : 'en';
+            };
+
+            doc.addEventListener(
+                'click',
+                function (event) {
+                    var anchor =
+                        event.target && typeof event.target.closest === 'function'
+                            ? event.target.closest('a[href]')
+                            : null;
+                    var href;
+                    var destination;
+                    var linkText;
+
+                    if (!anchor) {
+                        return;
+                    }
+
+                    href = anchor.getAttribute('href');
+                    if (!href || href.charAt(0) === '#') {
+                        return;
+                    }
+
+                    try {
+                        destination = new URL(anchor.href, win.location.href);
+                    } catch (e) {
+                        return;
+                    }
+
+                    if (
+                        (destination.protocol !== 'http:' && destination.protocol !== 'https:') ||
+                        destination.origin === win.location.origin
+                    ) {
+                        return;
+                    }
+
+                    linkText = anchor.textContent ? anchor.textContent.replace(/\s+/g, ' ').trim() : '';
+
+                    pushDataLayerEvent({
+                        event: 'outbound_link_click',
+                        link_url: destination.href,
+                        link_domain: destination.hostname,
+                        link_text: linkText,
+                        link_id: anchor.id || '',
+                        page_language: getCurrentLanguage(),
+                        page_theme: getCurrentTheme()
+                    });
+                },
+                true
+            );
+        })();
+    </script>
     <script src="static/js/site.min.js" defer></script>
 </body>
 </html>

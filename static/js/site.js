@@ -412,6 +412,93 @@
         return root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
     };
 
+    var getCurrentLanguage = function () {
+        return root.getAttribute('lang') === 'it' ? 'it' : 'en';
+    };
+
+    var pushDataLayerEvent = function (payload) {
+        var dataLayer;
+
+        if (!payload || typeof payload !== 'object') {
+            return;
+        }
+
+        dataLayer = win.dataLayer = win.dataLayer || [];
+        dataLayer.push(payload);
+    };
+
+    if (typeof win.pushDataLayerEvent !== 'function') {
+        win.pushDataLayerEvent = pushDataLayerEvent;
+    }
+
+    var pushPageViewEvent = function (source) {
+        win.pushDataLayerEvent({
+            event: 'pageview',
+            page_title: doc.title,
+            page_location: win.location.href,
+            page_path: win.location.pathname + win.location.search,
+            page_language: getCurrentLanguage(),
+            page_theme: getCurrentTheme(),
+            pageview_source: source || 'state_sync'
+        });
+    };
+
+    var initOutboundLinkTracking = function () {
+        if (win.__outboundLinkTrackingInitialized === true) {
+            return;
+        }
+
+        win.__outboundLinkTrackingInitialized = true;
+
+        doc.addEventListener(
+            'click',
+            function (event) {
+                var anchor =
+                    event.target && typeof event.target.closest === 'function'
+                        ? event.target.closest('a[href]')
+                        : null;
+                var href;
+                var destination;
+                var linkText;
+
+                if (!anchor) {
+                    return;
+                }
+
+                href = anchor.getAttribute('href');
+                if (!href || href.charAt(0) === '#') {
+                    return;
+                }
+
+                try {
+                    destination = new URL(anchor.href, win.location.href);
+                } catch (e) {
+                    return;
+                }
+
+                if (
+                    (destination.protocol !== 'http:' && destination.protocol !== 'https:') ||
+                    destination.origin === win.location.origin
+                ) {
+                    return;
+                }
+
+                linkText = anchor.textContent ? anchor.textContent.replace(/\s+/g, ' ').trim() : '';
+
+                win.pushDataLayerEvent({
+                    event: 'outbound_link_click',
+                    link_url: destination.href,
+                    link_domain: destination.hostname,
+                    link_text: linkText,
+                    link_id: anchor.id || '',
+                    page_language: getCurrentLanguage(),
+                    page_theme: getCurrentTheme()
+                });
+            },
+            true
+        );
+    };
+
     var buildPyPIBadgeUrl = function (pkg, theme) {
         var baseUrl = 'https://img.shields.io/pypi/dm/' + encodeURIComponent(pkg);
         if (theme === 'dark') {
@@ -447,8 +534,10 @@
     if (themeToggle) {
         var themeIcon = themeToggle.querySelector('[data-theme-icon]');
 
-        applyTheme = function (theme) {
+        applyTheme = function (theme, options) {
             var languageData = translations[currentLanguage] || translations.en;
+            var shouldTrackPageView = options && options.trackPageView === true;
+            var pageViewSource = options && options.pageViewSource ? options.pageViewSource : 'theme_change';
 
             root.setAttribute('data-theme', theme);
             if (themeIcon) {
@@ -460,13 +549,22 @@
                 theme === 'dark' ? languageData.themeToLightAria : languageData.themeToDarkAria
             );
             syncLoadedPyPIBadges();
+
+            if (shouldTrackPageView) {
+                pushPageViewEvent(pageViewSource);
+            }
         };
 
-        applyTheme(root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light');
+        applyTheme(root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light', {
+            trackPageView: false
+        });
 
         themeToggle.addEventListener('click', function () {
             var nextTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-            applyTheme(nextTheme);
+            applyTheme(nextTheme, {
+                trackPageView: true,
+                pageViewSource: 'theme_change'
+            });
             try {
                 localStorage.setItem('theme', nextTheme);
             } catch (e) {
@@ -497,11 +595,14 @@
         }
     };
 
-    var applyLanguage = function (language) {
+    var applyLanguage = function (language, options) {
         var normalizedLanguage = language === 'it' ? 'it' : 'en';
         var languageData = translations[normalizedLanguage] || translations.en;
         var heroButtons = doc.querySelectorAll('.hero__actions .btn');
         var heroAvatar = doc.querySelector('.hero__avatar');
+        var shouldTrackPageView = !options || options.trackPageView !== false;
+        var pageViewSource =
+            options && options.pageViewSource ? options.pageViewSource : 'language_change';
 
         currentLanguage = normalizedLanguage;
         root.setAttribute('lang', normalizedLanguage);
@@ -590,15 +691,27 @@
         });
 
         updateLanguageToggleState();
-        applyTheme(getCurrentTheme());
+        applyTheme(getCurrentTheme(), {
+            trackPageView: false
+        });
+
+        if (shouldTrackPageView) {
+            pushPageViewEvent(pageViewSource);
+        }
     };
 
-    applyLanguage(resolveInitialLanguage());
+    initOutboundLinkTracking();
+
+    applyLanguage(resolveInitialLanguage(), {
+        pageViewSource: 'initial_load'
+    });
 
     if (languageToggle) {
         languageToggle.addEventListener('click', function () {
             var nextLanguage = currentLanguage === 'it' ? 'en' : 'it';
-            applyLanguage(nextLanguage);
+            applyLanguage(nextLanguage, {
+                pageViewSource: 'language_change'
+            });
             try {
                 localStorage.setItem('language', nextLanguage);
             } catch (e) {

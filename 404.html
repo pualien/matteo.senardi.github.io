@@ -3,6 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-M6JLQ6KQ');</script>
+    <!-- End Google Tag Manager -->
     <title>Page Not Found | Matteo Senardi</title>
     <meta name="robots" content="noindex,follow">
     <link rel="canonical" href="https://pualien.github.io/matteo.senardi.github.io/404.html">
@@ -77,6 +84,10 @@
     </style>
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M6JLQ6KQ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <main>
         <h1>Page not found</h1>
         <p>The page may have moved or the URL may be incorrect. Return to the portfolio homepage or contact me directly.</p>
@@ -85,5 +96,81 @@
             <a href="https://www.linkedin.com/in/matteosenardi/" rel="noopener noreferrer" target="_blank">Contact on LinkedIn</a>
         </div>
     </main>
+    <script>
+        (function () {
+            var root = document.documentElement;
+
+            var pushDataLayerEvent = function (payload) {
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push(payload);
+            };
+
+            var getCurrentTheme = function () {
+                return root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+            };
+
+            var getCurrentLanguage = function () {
+                return root.getAttribute('lang') === 'it' ? 'it' : 'en';
+            };
+
+            pushDataLayerEvent({
+                event: 'pageview',
+                page_title: document.title,
+                page_location: window.location.href,
+                page_path: window.location.pathname + window.location.search,
+                page_language: getCurrentLanguage(),
+                page_theme: getCurrentTheme(),
+                pageview_source: 'initial_load'
+            });
+
+            document.addEventListener(
+                'click',
+                function (event) {
+                    var anchor =
+                        event.target && typeof event.target.closest === 'function'
+                            ? event.target.closest('a[href]')
+                            : null;
+                    var href;
+                    var destination;
+                    var linkText;
+
+                    if (!anchor) {
+                        return;
+                    }
+
+                    href = anchor.getAttribute('href');
+                    if (!href || href.charAt(0) === '#') {
+                        return;
+                    }
+
+                    try {
+                        destination = new URL(anchor.href, window.location.href);
+                    } catch (e) {
+                        return;
+                    }
+
+                    if (
+                        (destination.protocol !== 'http:' && destination.protocol !== 'https:') ||
+                        destination.origin === window.location.origin
+                    ) {
+                        return;
+                    }
+
+                    linkText = anchor.textContent ? anchor.textContent.replace(/\s+/g, ' ').trim() : '';
+
+                    pushDataLayerEvent({
+                        event: 'outbound_link_click',
+                        link_url: destination.href,
+                        link_domain: destination.hostname,
+                        link_text: linkText,
+                        link_id: anchor.id || '',
+                        page_language: getCurrentLanguage(),
+                        page_theme: getCurrentTheme()
+                    });
+                },
+                true
+            );
+        })();
+    </script>
 </body>
 </html>
