@@ -247,7 +247,7 @@
             ],
             footerTitle: "Let's connect.",
             footerSubtitle:
-                'Open to select collaborations in Data, AI, graph based copilots, and cloud architecture.',
+                'Open to select collaborations in Data, AI, graph-based copilots, and cloud architecture.',
             footerLinks: ['View GitHub repositories', 'Contact on LinkedIn', 'Download CV'],
             footerLocation: 'Turin, Italy',
             badgeAltSuffix: 'monthly downloads'
