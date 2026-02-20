@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+set -e
+
+# Run asset minification before committing.
+make build
+
