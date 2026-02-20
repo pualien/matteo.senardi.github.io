@@ -247,7 +247,7 @@
             ],
             footerTitle: "Let's connect.",
             footerSubtitle:
-                'Open to select collaborations in Data, AI, LangGraph copilots, and cloud architecture.',
+                'Open to select collaborations in Data, AI, graph based copilots, and cloud architecture.',
             footerLinks: ['View GitHub repositories', 'Contact on LinkedIn', 'Download CV'],
             footerLocation: 'Turin, Italy',
             badgeAltSuffix: 'monthly downloads'
@@ -376,7 +376,7 @@
             ],
             footerTitle: 'Restiamo in contatto.',
             footerSubtitle:
-                'Disponibile per collaborazioni selezionate in Data, AI, copilot LangGraph e cloud architecture.',
+                'Disponibile per collaborazioni selezionate in Data, AI, copilot basati su grafi e cloud architecture.',
             footerLinks: ['Vedi i repository GitHub', 'Contattami su LinkedIn', 'Scarica CV'],
             footerLocation: 'Torino, Italia',
             badgeAltSuffix: 'download mensili'
